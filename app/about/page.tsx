@@ -1,177 +1,380 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const serif = { fontFamily: "var(--serif)" };
+
 export const metadata: Metadata = {
-  title: "About Vani Estates — RERA Registered Real Estate Agents in Bangalore",
+  title: "About Vani Estates — RERA Registered Property Consultants in Bangalore",
   description:
-    "Vani Estates is a RERA registered real estate agency founded in 2010 by Amarnath R. 35+ years of trusted property dealing across Jayanagar, JP Nagar, Banashankari & Basavanagudi in South Bangalore.",
+    "Founded in 1990 by Amarnath R, Vani Estates is Jayanagar's most trusted property consultancy. 35+ years of South Bangalore real estate expertise across Jayanagar, JP Nagar, Banashankari & Basavanagudi.",
   openGraph: {
-    title: "About Vani Estates — RERA Registered Real Estate Agents in Bangalore",
+    title: "About Vani Estates — RERA Registered Property Consultants in Bangalore",
     description:
-      "Founded in 2010 by Amarnath R. 35+ years of expertise, 500+ properties dealt, 4.9★ Google rating. Buying, selling, renting & NRI property management in South Bangalore.",
+      "35+ years of trusted real estate service. Founded by Amarnath R in 1990. Buying, selling, renting and NRI property management in South Bangalore.",
   },
 };
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#0a0a0a]">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <nav className="text-xs text-gray-600">
-          <Link href="/" className="hover:text-[#C9A055]">Home</Link>
-          <span className="mx-2">›</span>
-          <span className="text-gray-400">About</span>
-        </nav>
-      </div>
-
+    <div style={{ background: "#F5F0E8" }}>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 pt-12 pb-20">
-        <p
-          className="text-[11px] mb-4 font-sans-ui"
-          style={{ color: "#C9A055", letterSpacing: 5, textTransform: "uppercase" }}
-        >
-          About Us
-        </p>
+      <section
+        className="text-center px-6 py-24 border-b border-[#DDD8CE]"
+        style={{ background: "#EDE8DF" }}
+      >
+        <p className="eyebrow eyebrow-wide mb-4">Est. 1990 · Jayanagar, Bangalore</p>
         <h1
-          className="font-serif-display max-w-3xl mb-8 leading-[1.05]"
-          style={{ fontSize: "clamp(40px, 6vw, 72px)", color: "#F5EFE8", fontWeight: 300 }}
+          className="mb-5 leading-[1.05] mx-auto max-w-4xl"
+          style={{
+            ...serif,
+            fontSize: "clamp(44px, 7vw, 80px)",
+            color: "#1A1410",
+            fontWeight: 300,
+          }}
         >
-          South Bangalore&apos;s{" "}
-          <em className="font-normal not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
-            most trusted
-          </em>{" "}
-          property name — since 1990.
+          About{" "}
+          <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
+            Vani Estates
+          </em>
         </h1>
-        <p className="text-gray-400 text-lg leading-relaxed max-w-3xl font-sans-ui">
-          Vani Estates is a RERA registered real estate agency built on three decades of
-          local relationships. <span className="text-gray-200">Amarnath R</span> brings
-          over 35 years of South Bangalore real estate experience to every deal — from
-          first-time buyers in Jayanagar to NRI clients managing property from abroad.
+        <p
+          className="max-w-2xl mx-auto"
+          style={{
+            fontFamily: "var(--sans)",
+            color: "#7A6F60",
+            fontSize: 17,
+            lineHeight: 1.9,
+          }}
+        >
+          Jayanagar&apos;s most trusted property consultants for over 35 years. We&apos;ve
+          helped thousands of families buy, sell and rent their perfect home in South
+          Bangalore.
         </p>
       </section>
 
-      {/* Stats */}
-      <section className="py-12 bg-[#050505] border-y border-[#222]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        {/* Story + Stats */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+          <div>
+            <div className="eyebrow mb-4">Our Story</div>
+            <h2
+              className="mb-7 leading-tight"
+              style={{
+                ...serif,
+                fontSize: "clamp(32px, 4.5vw, 48px)",
+                color: "#1A1410",
+                fontWeight: 400,
+              }}
+            >
+              35 years of trusted service in{" "}
+              <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
+                South Bangalore
+              </em>
+            </h2>
+            <div
+              className="space-y-5"
+              style={{
+                fontFamily: "var(--sans)",
+                color: "#5A4F40",
+                fontSize: 15,
+                lineHeight: 1.9,
+              }}
+            >
+              <p>
+                Founded by <strong style={{ color: "#1A1410" }}>Amarnath R</strong> in 1990,
+                Vani Estates began as a small consultancy in Jayanagar with one simple
+                mission — to help families find the right property with complete honesty
+                and transparency.
+              </p>
+              <p>
+                Over three decades, we&apos;ve grown into one of South Bangalore&apos;s
+                most recognized real estate firms, serving clients across Jayanagar, JP
+                Nagar, Banashankari and Basavanagudi.
+              </p>
+              <p>
+                Amarnath is also the proud owner of{" "}
+                <strong style={{ color: "#1A1410" }}>Vani Circulating Library</strong> in
+                Jayanagar 2nd Block — a beloved community institution that reflects our
+                deep roots in the neighbourhood.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white border border-[#DDD8CE] p-10 flex flex-col gap-8">
             {[
-              { num: "35+", label: "Years Experience" },
-              { num: "500+", label: "Properties Dealt" },
-              { num: "4.9★", label: "Google Rating (16 reviews)" },
-              { num: "RERA", label: "Registered Agent" },
-            ].map((s) => (
-              <div key={s.label} className="text-center py-6 border border-[#222]">
-                <div className="text-3xl font-semibold text-[#C9A055] mb-2">{s.num}</div>
-                <div className="text-gray-500 text-sm">{s.label}</div>
+              ["500+", "Properties Dealt"],
+              ["3000+", "Happy Clients"],
+              ["35+", "Years of Experience"],
+              ["4", "Prime Localities"],
+            ].map(([num, label], i, arr) => (
+              <div
+                key={label}
+                className={`flex items-center gap-6 ${
+                  i < arr.length - 1 ? "pb-7 border-b border-[#EDE8DF]" : ""
+                }`}
+              >
+                <div
+                  className="leading-none min-w-[120px]"
+                  style={{
+                    ...serif,
+                    fontSize: 52,
+                    color: "#C9A055",
+                    fontWeight: 700,
+                  }}
+                >
+                  {num}
+                </div>
+                <div
+                  className="text-[13px]"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#7A6F60",
+                    letterSpacing: 1.5,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {label}
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Story + Specialities */}
-      <section className="py-20 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 space-y-8">
-            <div>
-              <h2 className="text-3xl mb-5 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 400 }}>Our Story</h2>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                Founded in 2010 by Amarnath R, Vani Estates was built on a simple
-                principle — honest, transparent property advice that puts the client first.
-                Over the years we have grown into one of the most trusted names for real
-                estate in South Bangalore, dealing in more than 500 properties and earning a
-                4.9★ rating from our clients on Google.
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                We know these neighbourhoods intimately — the localities, the builders, the
-                pricing trends and the paperwork. Whether you are a first-time homebuyer, a
-                seller looking for the right value, or an NRI who needs someone trustworthy to
-                manage property back home, we guide you through every step.
-              </p>
-            </div>
+        {/* Values */}
+        <div className="mb-24">
+          <div className="text-center mb-14">
+            <div className="eyebrow mb-3">Why Choose Us</div>
+            <h2
+              className="text-4xl md:text-5xl"
+              style={{ ...serif, color: "#1A1410", fontWeight: 400 }}
+            >
+              Our promise to you
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: "◈",
+                t: "Transparent Dealings",
+                d: "No hidden charges, no misleading information. Every transaction is clear and documented.",
+              },
+              {
+                icon: "◉",
+                t: "Deep Local Knowledge",
+                d: "35 years of experience in South Bangalore — every street, every builder, every market trend.",
+              },
+              {
+                icon: "◎",
+                t: "End-to-End Support",
+                d: "From property search to registration, we guide you through every step of the process.",
+              },
+              {
+                icon: "◐",
+                t: "Trusted Community",
+                d: "3000+ happy families. Our reputation is built on referrals and long-term relationships.",
+              },
+            ].map((v) => (
+              <div
+                key={v.t}
+                className="bg-white border border-[#DDD8CE] p-8"
+              >
+                <div
+                  className="text-3xl mb-4 opacity-80"
+                  style={{ color: "#C9A055" }}
+                >
+                  {v.icon}
+                </div>
+                <h3
+                  className="text-xl mb-3"
+                  style={{ ...serif, color: "#1A1410", fontWeight: 600 }}
+                >
+                  {v.t}
+                </h3>
+                <p
+                  className="text-sm"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#7A6F60",
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {v.d}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            <div>
-              <h2 className="text-3xl mb-5 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 400 }}>Where We Specialise</h2>
-              <div className="flex flex-wrap gap-2">
-                {["Jayanagar", "JP Nagar", "Banashankari", "Basavanagudi"].map((l) => (
-                  <span
-                    key={l}
-                    className="bg-[#111] border border-[#222] px-4 py-2 text-sm text-gray-300"
+        {/* Team */}
+        <div id="team" className="mb-24">
+          <div className="text-center mb-14">
+            <div className="eyebrow mb-3">The People Behind Vani Estates</div>
+            <h2
+              className="text-4xl md:text-5xl"
+              style={{ ...serif, color: "#1A1410", fontWeight: 400 }}
+            >
+              Meet our team
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "Amarnath R",
+                role: "Founder & CEO",
+                exp: "35 Years",
+                phone: "+91 98450 12548",
+                bio: "Amarnath R is the heart of Vani Estates. With over 35 years in South Bangalore's real estate market, he brings unmatched expertise in property valuation, legal documentation, negotiation and registration. He also owns the iconic Vani Circulating Library in Jayanagar 2nd Block.",
+              },
+              {
+                name: "Rakesh Lakshman",
+                role: "Senior Property Consultant",
+                exp: "14 Years",
+                phone: "+91 98450 12548",
+                bio: "Rakesh brings 14 years of hands-on experience in South Bangalore's residential market. With deep knowledge of JP Nagar, Banashankari and Basavanagudi, he helps buyers and sellers navigate the market with confidence and clarity.",
+              },
+            ].map((a) => (
+              <div
+                key={a.name}
+                className="bg-white border border-[#DDD8CE] flex gap-7 p-9"
+              >
+                <div
+                  className="flex-shrink-0 w-24 h-24 rounded-full flex items-center justify-center"
+                  style={{
+                    background: "#EDE8DF",
+                    border: "2px solid rgba(201,160,85,0.35)",
+                    color: "#C9A055",
+                    opacity: 0.7,
+                    ...serif,
+                    fontSize: 38,
+                    fontWeight: 600,
+                  }}
+                >
+                  {a.name.charAt(0)}
+                </div>
+                <div className="flex-1">
+                  <h3
+                    className="text-2xl mb-1"
+                    style={{ ...serif, color: "#1A1410", fontWeight: 600 }}
                   >
-                    {l}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl mb-5 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 400 }}>Our Services</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { t: "Property Buying", d: "Curated listings and end-to-end support for homebuyers and investors." },
-                  { t: "Property Selling", d: "Right valuation and trusted buyers to sell your property faster." },
-                  { t: "Renting", d: "Quality tenants and rental homes across South Bangalore." },
-                  { t: "NRI Property Management", d: "Reliable, transparent management of property for clients abroad." },
-                ].map((s) => (
-                  <div key={s.t} className="bg-[#111] border border-[#222] p-5">
-                    <h3 className="text-[#C9A055] font-medium text-sm mb-2">{s.t}</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">{s.d}</p>
+                    {a.name}
+                  </h3>
+                  <div
+                    className="text-xs mb-4"
+                    style={{
+                      fontFamily: "var(--sans)",
+                      color: "#C9A055",
+                      letterSpacing: 1,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {a.role} · {a.exp} Experience
                   </div>
-                ))}
+                  <p
+                    className="mb-5 text-sm"
+                    style={{
+                      fontFamily: "var(--sans)",
+                      color: "#5A4F40",
+                      lineHeight: 1.8,
+                    }}
+                  >
+                    {a.bio}
+                  </p>
+                  <div className="flex gap-3 flex-wrap">
+                    <a
+                      href={`https://wa.me/${a.phone.replace(/\D/g, "")}`}
+                      target="_blank"
+                      className="bg-[#25D366] text-white px-5 py-2 text-xs hover:bg-[#1da851] transition"
+                      style={{
+                        fontFamily: "var(--sans)",
+                        fontWeight: 600,
+                        letterSpacing: 1,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      WhatsApp
+                    </a>
+                    <a
+                      href={`tel:${a.phone.replace(/\s/g, "")}`}
+                      className="border border-[#C9A055]/60 text-[#C9A055] px-5 py-2 text-xs hover:bg-[#C9A055] hover:text-white transition"
+                      style={{
+                        fontFamily: "var(--sans)",
+                        fontWeight: 600,
+                        letterSpacing: 1,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {a.phone}
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Contact card */}
+        {/* Office / Location */}
+        <div className="bg-white border border-[#DDD8CE] p-10 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="bg-[#111] border border-[#222] p-6 sticky top-24">
-              <h3 className="text-lg font-medium mb-4">Get in Touch</h3>
-              <div className="flex flex-col gap-3 text-sm mb-6">
-                <a href="tel:+919845012548" className="text-gray-300 hover:text-[#C9A055]">
-                  +91 98450 12548
-                </a>
-                <a href="mailto:vaniestates@gmail.com" className="text-gray-300 hover:text-[#C9A055] break-all">
-                  vaniestates@gmail.com
-                </a>
-                <span className="text-gray-500">Jayanagar, Bangalore 560041</span>
+            <div className="eyebrow mb-4">Find Us</div>
+            <h2
+              className="text-3xl md:text-4xl mb-7"
+              style={{ ...serif, color: "#1A1410", fontWeight: 400 }}
+            >
+              Visit our office
+            </h2>
+            {[
+              [
+                "Address",
+                "#14, 9th Main Road, 3rd Block Jayanagar\n(Next to SBI Bank), Bangalore – 560 011",
+              ],
+              ["Phone", "+91 98450 12548"],
+              ["Email", "vaniestates@gmail.com"],
+              [
+                "Hours",
+                "Mon – Sat: 9:00 AM – 7:00 PM\nSunday: 10:00 AM – 5:00 PM",
+              ],
+            ].map(([k, v]) => (
+              <div key={k} className="mb-5 flex gap-4">
+                <div
+                  className="text-[11px] min-w-[80px] pt-0.5"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#7A6F60",
+                    letterSpacing: 1.5,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {k}
+                </div>
+                <div
+                  className="text-sm whitespace-pre-line"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#1A1410",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {v}
+                </div>
               </div>
-              <a
-                href="https://wa.me/919845012548"
-                target="_blank"
-                className="block w-full bg-[#25D366] text-white text-center font-semibold py-3 text-sm tracking-wider mb-3 hover:bg-[#1da851] transition"
-              >
-                WhatsApp Us
-              </a>
-              <Link
-                href="/contact/"
-                className="block w-full border border-[#C9A055] text-[#C9A055] text-center font-semibold py-3 text-sm tracking-wider hover:bg-[#C9A055] hover:text-black transition"
-              >
-                Contact Page
-              </Link>
-              <div className="mt-6 pt-6 border-t border-[#222]">
-                <p className="text-gray-600 text-xs">RERA: PRM/KA/RERA/1251/310/AG/250523/005790</p>
-              </div>
-            </div>
+            ))}
+          </div>
+          <div
+            className="border border-[#DDD8CE] overflow-hidden"
+            style={{ background: "#EDE8DF", minHeight: 320 }}
+          >
+            <iframe
+              title="Vani Estates — Jayanagar 3rd Block"
+              src="https://www.google.com/maps?q=3rd+Block+Jayanagar,+Bangalore+560011&output=embed"
+              className="w-full h-full"
+              style={{ border: 0, minHeight: 320 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-b from-[#0a0a0a] to-[#111] text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl mb-6 font-serif-display leading-tight" style={{ color: "#F5EFE8", fontWeight: 400 }}>Let&apos;s find your <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>next address</em>.</h2>
-          <p className="text-gray-500 mb-8">
-            35+ years of local expertise, just a message away.
-          </p>
-          <a
-            href="https://wa.me/919845012548"
-            target="_blank"
-            className="inline-block bg-[#C9A055] text-black font-semibold px-10 py-4 text-sm tracking-wider uppercase hover:bg-[#b8913e] transition"
-          >
-            Talk to Vani Estates
-          </a>
-        </div>
-      </section>
+      </div>
 
       {/* Schema */}
       <script
@@ -184,15 +387,15 @@ export default function AboutPage() {
             url: "https://www.vaniestates.com/about/",
             telephone: "+919845012548",
             email: "vaniestates@gmail.com",
-            foundingDate: "2010",
+            foundingDate: "1990",
             founder: { "@type": "Person", name: "Amarnath R" },
             areaServed: ["Jayanagar", "JP Nagar", "Banashankari", "Basavanagudi"],
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Jayanagar",
+              streetAddress: "#14, 9th Main Road, 3rd Block Jayanagar",
               addressLocality: "Bangalore",
               addressRegion: "Karnataka",
-              postalCode: "560041",
+              postalCode: "560011",
               addressCountry: "IN",
             },
             aggregateRating: {

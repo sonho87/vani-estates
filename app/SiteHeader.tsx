@@ -1,119 +1,171 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/properties/", label: "Properties" },
-  { href: "/blog/", label: "Blog" },
-  { href: "/about/", label: "About" },
-  { href: "/contact/", label: "Contact" },
+const navItems = [
+  { label: "Buy", href: "/properties/" },
+  { label: "Rent", href: "/properties/" },
+  { label: "Resale", href: "/properties/" },
+  { label: "New Projects", href: "/properties/" },
+  { label: "About Us", href: "/about/" },
+  { label: "Agents", href: "/about/#team" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 40);
+    fn();
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-b border-[#222]">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex flex-col leading-none" onClick={() => setOpen(false)}>
-          <span
-            className="text-xl md:text-[22px]"
-            style={{
-              color: "#F5EFE8",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 600,
-              letterSpacing: 1,
-              lineHeight: 1,
-            }}
-          >
-            VANI ESTATES
-          </span>
-          <span
-            className="hidden sm:block text-[9px] mt-1"
-            style={{
-              color: "#C9A055",
-              fontFamily: "Jost, sans-serif",
-              letterSpacing: 3,
-              textTransform: "uppercase",
-            }}
-          >
-            Property Consultants
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? "rgba(245,240,232,0.97)" : "rgba(245,240,232,0.92)",
+        borderBottom: scrolled ? "1px solid #DDD8CE" : "1px solid transparent",
+        backdropFilter: "blur(12px)",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="flex items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
+          <img
+            src="/logo.jpg"
+            alt="Vani Estates"
+            width={44}
+            height={44}
+            className="rounded-sm object-contain"
+            style={{ height: 44, width: 44 }}
+          />
+          <span className="leading-none">
+            <span
+              className="block text-xl md:text-[22px]"
+              style={{
+                color: "#1A1410",
+                fontFamily: "var(--serif)",
+                fontWeight: 600,
+                letterSpacing: 1,
+                lineHeight: 1,
+              }}
+            >
+              VANI ESTATES
+            </span>
+            <span
+              className="hidden sm:block text-[9px] mt-1"
+              style={{
+                color: "#C9A055",
+                fontFamily: "var(--sans)",
+                letterSpacing: 3,
+                textTransform: "uppercase",
+              }}
+            >
+              Property Consultants
+            </span>
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-7">
+          {navItems.map((l) => (
             <Link
-              key={l.href}
+              key={l.label}
               href={l.href}
-              className="text-[12px] uppercase text-gray-400 hover:text-[#C9A055] transition"
-              style={{ fontFamily: "Jost, sans-serif", letterSpacing: 1.5 }}
+              className="text-[13px] hover:text-[#C9A055] transition"
+              style={{
+                fontFamily: "var(--sans)",
+                color: "#7A6F60",
+                letterSpacing: 1,
+              }}
             >
               {l.label}
             </Link>
           ))}
+          <Link
+            href="/contact/"
+            className="ml-2 text-[12px] hover:bg-[#C9A055] hover:text-white transition"
+            style={{
+              fontFamily: "var(--sans)",
+              color: "#C9A055",
+              border: "1px solid rgba(201,160,85,0.7)",
+              letterSpacing: 1.5,
+              textTransform: "uppercase",
+              padding: "9px 18px",
+            }}
+          >
+            List Property
+          </Link>
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a
-            href="https://wa.me/919845012548"
-            target="_blank"
-            className="hidden sm:inline-block bg-[#C9A055] text-black text-sm font-semibold px-5 py-2 hover:bg-[#b8913e] transition"
-          >
-            WhatsApp Us
-          </a>
-
-          {/* Hamburger — mobile only */}
-          <button
-            type="button"
-            aria-label="Toggle menu"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
-          >
-            <span
-              className={`block h-0.5 w-6 bg-[#C9A055] transition-transform duration-300 ${
-                open ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-6 bg-[#C9A055] transition-opacity duration-300 ${
-                open ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-6 bg-[#C9A055] transition-transform duration-300 ${
-                open ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </button>
-        </div>
+        {/* Hamburger — mobile */}
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+        >
+          <span
+            className={`block h-0.5 w-6 bg-[#C9A055] transition-transform duration-300 ${
+              open ? "translate-y-2 rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-[#C9A055] transition-opacity duration-300 ${
+              open ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-[#C9A055] transition-transform duration-300 ${
+              open ? "-translate-y-2 -rotate-45" : ""
+            }`}
+          />
+        </button>
       </div>
 
       {/* Mobile menu */}
       <nav
-        className={`md:hidden border-t border-[#222] bg-[#0a0a0a] overflow-hidden transition-[max-height] duration-300 ${
-          open ? "max-h-96" : "max-h-0"
+        className={`lg:hidden bg-[#F5F0E8] border-t border-[#DDD8CE] overflow-hidden transition-[max-height] duration-300 ${
+          open ? "max-h-[600px]" : "max-h-0"
         }`}
       >
-        <div className="px-4 py-2 flex flex-col">
-          {links.map((l) => (
+        <div className="px-6 py-2 flex flex-col">
+          {navItems.map((l) => (
             <Link
-              key={l.href}
+              key={l.label}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="py-3 text-sm tracking-wider uppercase text-gray-400 hover:text-[#C9A055] border-b border-[#1a1a1a] transition"
+              className="py-3 text-sm hover:text-[#C9A055] border-b border-[#DDD8CE] transition"
+              style={{ fontFamily: "var(--sans)", color: "#5A4F40", letterSpacing: 1 }}
             >
               {l.label}
             </Link>
           ))}
+          <Link
+            href="/contact/"
+            onClick={() => setOpen(false)}
+            className="mt-4 mb-3 bg-[#C9A055] text-white text-center text-sm font-semibold px-5 py-3 hover:bg-[#b8913e] transition"
+            style={{ fontFamily: "var(--sans)", letterSpacing: 1.5, textTransform: "uppercase" }}
+          >
+            List Your Property
+          </Link>
           <a
             href="https://wa.me/919845012548"
             target="_blank"
             onClick={() => setOpen(false)}
-            className="mt-3 mb-2 bg-[#C9A055] text-black text-center text-sm font-semibold px-5 py-3 hover:bg-[#b8913e] transition"
+            className="mb-3 border border-[#25D366] text-[#25D366] text-center text-sm font-semibold px-5 py-3 hover:bg-[#25D366] hover:text-white transition"
+            style={{ fontFamily: "var(--sans)", letterSpacing: 1.5, textTransform: "uppercase" }}
           >
             WhatsApp Us
           </a>

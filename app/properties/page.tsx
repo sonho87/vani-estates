@@ -5,46 +5,123 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Properties for Sale & Rent in South Bangalore",
-  description: "Browse 13+ verified property listings in Jayanagar, JP Nagar, Banashankari & Basavanagudi. Flats, villas, commercial spaces from RERA registered agents.",
+  description:
+    "Browse verified property listings in Jayanagar, JP Nagar, Banashankari & Basavanagudi. Flats, villas and commercial spaces from RERA registered consultants.",
 };
+
+const serif = { fontFamily: "var(--serif)" };
 
 export default function PropertiesPage() {
   return (
-    <section className="py-12 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-4">
-        <p
-          className="text-[11px] mb-4 font-sans-ui"
-          style={{ color: "#C9A055", letterSpacing: 5, textTransform: "uppercase" }}
-        >
-          Our Listings
-        </p>
+    <section className="py-16" style={{ background: "#F5F0E8" }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="eyebrow eyebrow-wide mb-4">Explore</p>
         <h1
-          className="font-serif-display mb-4 leading-[1.05]"
-          style={{ fontSize: "clamp(36px, 5vw, 60px)", color: "#F5EFE8", fontWeight: 300 }}
+          className="mb-4 leading-[1.05]"
+          style={{
+            ...serif,
+            fontSize: "clamp(40px, 6vw, 64px)",
+            color: "#1A1410",
+            fontWeight: 300,
+          }}
         >
-          Properties in{" "}
+          All{" "}
           <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
-            South Bangalore
+            Properties
           </em>
         </h1>
-        <p className="text-gray-500 mb-12 font-sans-ui">{properties.length} hand-picked listings</p>
+        <p
+          className="mb-12"
+          style={{ fontFamily: "var(--sans)", color: "#7A6F60" }}
+        >
+          {properties.length} hand-picked listings across South Bangalore
+        </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((p: any) => (
-            <Link href={`/properties/${p.slug}/`} key={p.id} className="group bg-[#111] border border-[#222] hover:border-[#C9A055]/30 transition overflow-hidden">
-              <div className="h-52 bg-[#1a1a1a] overflow-hidden relative">
-                {p.heroImage && <img src={p.heroImage} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />}
-                {p.badge && <span className="absolute top-3 left-3 bg-[#C9A055] text-black text-xs font-semibold px-3 py-1">{p.badge}</span>}
-                <span className="absolute top-3 right-3 bg-black/70 text-gray-300 text-xs px-3 py-1">{p.status === "Rent" ? "For Rent" : "For Sale"}</span>
+            <Link
+              href={`/properties/${p.slug}/`}
+              key={p.id}
+              className="group bg-white border border-[#DDD8CE] hover:border-[#C9A055]/60 transition overflow-hidden"
+            >
+              <div className="h-56 bg-[#EDE8DF] overflow-hidden relative">
+                {p.heroImage && (
+                  <img
+                    src={p.heroImage}
+                    alt={p.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    loading="lazy"
+                  />
+                )}
+                {p.badge && (
+                  <span
+                    className="absolute top-3 left-3 bg-[#C9A055] text-white text-xs font-semibold px-3 py-1"
+                    style={{ fontFamily: "var(--sans)", letterSpacing: 1 }}
+                  >
+                    {p.badge}
+                  </span>
+                )}
+                <span
+                  className="absolute top-3 right-3 bg-white/90 text-[#5A4F40] text-[10px] px-3 py-1"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    letterSpacing: 2,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {p.status === "Rent" ? "For Rent" : "For Sale"}
+                </span>
               </div>
-              <div className="p-5">
-                <h2 className="font-serif-display text-xl mb-2 line-clamp-2 group-hover:text-[#C9A055] transition" style={{ color: "#F5EFE8", fontWeight: 500, lineHeight: 1.2 }}>{p.title}</h2>
-                <p className="text-gray-500 text-xs mb-3">{p.locality}, {p.city} · {p.type}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-[#C9A055] font-semibold">{formatPrice(p.price, p.status)}</span>
-                  <span className="text-gray-600 text-xs">{p.area} sq.ft · {p.bhk} BHK</span>
+              <div className="p-6">
+                <h2
+                  className="text-xl mb-2 line-clamp-2 group-hover:text-[#C9A055] transition"
+                  style={{
+                    ...serif,
+                    color: "#1A1410",
+                    fontWeight: 600,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {p.title}
+                </h2>
+                <p
+                  className="text-xs mb-4"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#7A6F60",
+                    letterSpacing: 1,
+                  }}
+                >
+                  {p.locality}, {p.city} · {p.type}
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-[#EDE8DF]">
+                  <span
+                    style={{
+                      ...serif,
+                      color: "#C9A055",
+                      fontWeight: 600,
+                      fontSize: 22,
+                    }}
+                  >
+                    {formatPrice(p.price, p.status)}
+                  </span>
+                  <span
+                    className="text-xs"
+                    style={{
+                      fontFamily: "var(--sans)",
+                      color: "#7A6F60",
+                    }}
+                  >
+                    {p.area} sq.ft · {p.bhk} BHK
+                  </span>
                 </div>
-                <div className="flex gap-4 mt-3 text-xs text-gray-600">
+                <div
+                  className="flex gap-4 mt-3 text-[11px]"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#7A6F60",
+                  }}
+                >
                   <span>Floor: {p.floor}</span>
                   <span>Facing: {p.facing}</span>
                   <span>Parking: {p.parking}</span>

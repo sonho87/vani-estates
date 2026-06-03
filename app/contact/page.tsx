@@ -1,161 +1,214 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const serif = { fontFamily: "var(--serif)" };
+
 export const metadata: Metadata = {
   title: "Contact Vani Estates — Call, WhatsApp or Visit Us",
   description:
-    "Get in touch with Vani Estates for buying, selling or renting property in South Bangalore. Call +91 98450 12548, WhatsApp us, or visit our office in Jayanagar, Bangalore 560041.",
-  openGraph: {
-    title: "Contact Vani Estates — Call, WhatsApp or Visit Us",
-    description:
-      "Call +91 98450 12548, WhatsApp, or email vaniestates@gmail.com. RERA registered real estate agents in Jayanagar, Bangalore.",
-  },
+    "Get in touch with Vani Estates for buying, selling or renting property in South Bangalore. Call +91 98450 12548, WhatsApp, or visit our office in 3rd Block Jayanagar.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="bg-[#0a0a0a]">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <nav className="text-xs text-gray-600">
-          <Link href="/" className="hover:text-[#C9A055]">Home</Link>
-          <span className="mx-2">›</span>
-          <span className="text-gray-400">Contact</span>
-        </nav>
-      </div>
+    <div style={{ background: "#F5F0E8" }}>
+      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-20 items-start">
+        <div>
+          <div className="eyebrow eyebrow-wide mb-4">Get in Touch</div>
+          <h1
+            className="mb-7 leading-[1.05]"
+            style={{
+              ...serif,
+              fontSize: "clamp(40px, 6vw, 72px)",
+              color: "#1A1410",
+              fontWeight: 300,
+            }}
+          >
+            Let&apos;s find your{" "}
+            <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
+              perfect property
+            </em>
+          </h1>
+          <p
+            className="mb-12"
+            style={{
+              fontFamily: "var(--sans)",
+              color: "#7A6F60",
+              fontSize: 15,
+              lineHeight: 1.85,
+            }}
+          >
+            Our consultants are available 7 days a week to help you find, buy, sell, or
+            rent the right property in South Bangalore.
+          </p>
 
-      {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 pt-12 pb-16">
-        <p
-          className="text-[11px] mb-4 font-sans-ui"
-          style={{ color: "#C9A055", letterSpacing: 5, textTransform: "uppercase" }}
-        >
-          Get In Touch
-        </p>
-        <h1
-          className="font-serif-display mb-6 leading-[1.05]"
-          style={{ fontSize: "clamp(40px, 6vw, 72px)", color: "#F5EFE8", fontWeight: 300 }}
-        >
-          Let&apos;s start a{" "}
-          <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
-            conversation
-          </em>
-          .
-        </h1>
-        <p className="text-gray-400 text-lg leading-relaxed max-w-2xl font-sans-ui">
-          Looking to buy, sell or rent in South Bangalore? The fastest way to reach us is on
-          WhatsApp — we usually reply within the hour.
-        </p>
-      </section>
+          <div className="space-y-6">
+            {[
+              ["Phone", "+91 98450 12548", "tel:+919845012548"],
+              ["WhatsApp", "+91 98450 12548", "https://wa.me/919845012548"],
+              ["Email", "vaniestates@gmail.com", "mailto:vaniestates@gmail.com"],
+              [
+                "Office",
+                "#14, 9th Main Road, 3rd Block Jayanagar, Bangalore – 560 011",
+                null,
+              ],
+              ["Hours", "Mon – Sat 9 AM – 7 PM · Sunday 10 AM – 5 PM", null],
+            ].map(([k, v, href]) => (
+              <div key={k} className="flex gap-5 border-b border-[#DDD8CE] pb-5">
+                <div
+                  className="text-[11px] min-w-[90px] pt-0.5"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#7A6F60",
+                    letterSpacing: 1.5,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {k}
+                </div>
+                <div
+                  className="text-[15px]"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    color: "#1A1410",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {href ? (
+                    <a
+                      href={href as string}
+                      target={(href as string).startsWith("http") ? "_blank" : undefined}
+                      className="hover:text-[#C9A055] transition"
+                    >
+                      {v}
+                    </a>
+                  ) : (
+                    v
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
 
-      <section className="max-w-7xl mx-auto px-4 pb-20 grid lg:grid-cols-2 gap-10">
-        {/* Left: contact details + CTAs */}
-        <div className="space-y-6">
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="mt-10 flex gap-4 flex-wrap">
             <a
               href="https://wa.me/919845012548"
               target="_blank"
-              className="bg-[#25D366] text-white text-center font-semibold py-4 text-sm tracking-wider hover:bg-[#1da851] transition"
+              className="bg-[#25D366] text-white px-8 py-3 hover:bg-[#1da851] transition"
+              style={{
+                fontFamily: "var(--sans)",
+                fontSize: 13,
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                textTransform: "uppercase",
+              }}
             >
               WhatsApp Us
             </a>
             <a
               href="tel:+919845012548"
-              className="border border-[#C9A055] text-[#C9A055] text-center font-semibold py-4 text-sm tracking-wider hover:bg-[#C9A055] hover:text-black transition"
+              className="border border-[#C9A055] text-[#C9A055] px-8 py-3 hover:bg-[#C9A055] hover:text-white transition"
+              style={{
+                fontFamily: "var(--sans)",
+                fontSize: 13,
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                textTransform: "uppercase",
+              }}
             >
               Call Now
             </a>
           </div>
+        </div>
 
-          <div className="bg-[#111] border border-[#222] p-6 space-y-5">
-            <div>
-              <div className="text-gray-600 text-xs uppercase tracking-wider mb-1">Phone</div>
-              <a href="tel:+919845012548" className="text-gray-200 hover:text-[#C9A055]">
-                +91 98450 12548
-              </a>
-            </div>
-            <div>
-              <div className="text-gray-600 text-xs uppercase tracking-wider mb-1">WhatsApp</div>
-              <a
-                href="https://wa.me/919845012548"
-                target="_blank"
-                className="text-gray-200 hover:text-[#C9A055]"
-              >
-                wa.me/919845012548
-              </a>
-            </div>
-            <div>
-              <div className="text-gray-600 text-xs uppercase tracking-wider mb-1">Email</div>
-              <a
-                href="mailto:vaniestates@gmail.com"
-                className="text-gray-200 hover:text-[#C9A055] break-all"
-              >
-                vaniestates@gmail.com
-              </a>
-            </div>
-            <div>
-              <div className="text-gray-600 text-xs uppercase tracking-wider mb-1">Office</div>
-              <p className="text-gray-200">Jayanagar, Bangalore 560041</p>
-            </div>
-            <div className="pt-4 border-t border-[#222]">
-              <p className="text-gray-600 text-xs">RERA: PRM/KA/RERA/1251/310/AG/250523/005790</p>
-            </div>
-          </div>
-
-          {/* Visual-only contact form (no backend — submits to WhatsApp) */}
+        {/* Form + map */}
+        <div className="space-y-6">
           <form
             action="https://wa.me/919845012548"
             method="get"
             target="_blank"
-            className="bg-[#111] border border-[#222] p-6 space-y-4"
+            className="bg-white border border-[#DDD8CE] p-9 space-y-4"
           >
-            <h2 className="text-2xl font-serif-display" style={{ color: "#F5EFE8", fontWeight: 500 }}>Send us a message</h2>
+            <h2
+              className="text-2xl mb-1"
+              style={{ ...serif, color: "#1A1410", fontWeight: 600 }}
+            >
+              Send us a message
+            </h2>
+            <p
+              className="text-sm mb-3"
+              style={{ fontFamily: "var(--sans)", color: "#7A6F60" }}
+            >
+              We&apos;ll reply on WhatsApp — usually within the hour.
+            </p>
             <div className="grid sm:grid-cols-2 gap-4">
               <input
                 type="text"
                 placeholder="Your Name"
-                className="w-full bg-[#0a0a0a] border border-[#222] px-4 py-3 text-sm text-gray-200 placeholder-gray-600 focus:border-[#C9A055] outline-none"
+                className="w-full bg-[#F5F0E8] border border-[#DDD8CE] px-4 py-3 text-sm outline-none focus:border-[#C9A055]"
+                style={{ fontFamily: "var(--sans)", color: "#1A1410" }}
               />
               <input
                 type="tel"
                 placeholder="Phone Number"
-                className="w-full bg-[#0a0a0a] border border-[#222] px-4 py-3 text-sm text-gray-200 placeholder-gray-600 focus:border-[#C9A055] outline-none"
+                className="w-full bg-[#F5F0E8] border border-[#DDD8CE] px-4 py-3 text-sm outline-none focus:border-[#C9A055]"
+                style={{ fontFamily: "var(--sans)", color: "#1A1410" }}
               />
             </div>
+            <select
+              className="w-full bg-[#F5F0E8] border border-[#DDD8CE] px-4 py-3 text-sm outline-none focus:border-[#C9A055]"
+              style={{ fontFamily: "var(--sans)", color: "#1A1410" }}
+              defaultValue="Buy"
+            >
+              <option>Buy</option>
+              <option>Rent</option>
+              <option>Sell</option>
+              <option>Rent Out My Property</option>
+              <option>NRI Property Management</option>
+            </select>
             <textarea
               rows={4}
-              placeholder="How can we help you?"
-              className="w-full bg-[#0a0a0a] border border-[#222] px-4 py-3 text-sm text-gray-200 placeholder-gray-600 focus:border-[#C9A055] outline-none resize-none"
+              placeholder="Tell us what you're looking for…"
+              className="w-full bg-[#F5F0E8] border border-[#DDD8CE] px-4 py-3 text-sm outline-none resize-none focus:border-[#C9A055]"
+              style={{ fontFamily: "var(--sans)", color: "#1A1410" }}
             />
             <button
               type="submit"
-              className="w-full bg-[#C9A055] text-black font-semibold py-3 text-sm tracking-wider uppercase hover:bg-[#b8913e] transition"
+              className="w-full bg-[#C9A055] text-white py-3 text-sm hover:bg-[#b8913e] transition"
+              style={{
+                fontFamily: "var(--sans)",
+                fontWeight: 700,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+              }}
             >
               Continue on WhatsApp
             </button>
-            <p className="text-gray-600 text-xs">
+            <p
+              className="text-[11px]"
+              style={{ fontFamily: "var(--sans)", color: "#7A6F60" }}
+            >
               Tapping send opens WhatsApp so we can reply to you instantly.
             </p>
           </form>
-        </div>
 
-        {/* Right: map */}
-        <div className="min-h-[400px]">
-          <div className="bg-[#111] border border-[#222] h-full overflow-hidden">
+          <div
+            className="bg-white border border-[#DDD8CE] overflow-hidden"
+            style={{ minHeight: 320 }}
+          >
             <iframe
-              title="Vani Estates — Jayanagar, Bangalore"
-              src="https://www.google.com/maps?q=Jayanagar,+Bangalore,+Karnataka+560041&output=embed"
-              className="w-full h-full min-h-[400px]"
-              style={{ border: 0, filter: "grayscale(0.4) contrast(1.1)" }}
+              title="Vani Estates — Jayanagar"
+              src="https://www.google.com/maps?q=3rd+Block+Jayanagar,+Bangalore+560011&output=embed"
+              className="w-full h-full"
+              style={{ border: 0, minHeight: 320 }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -168,10 +221,10 @@ export default function ContactPage() {
             email: "vaniestates@gmail.com",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Jayanagar",
+              streetAddress: "#14, 9th Main Road, 3rd Block Jayanagar",
               addressLocality: "Bangalore",
               addressRegion: "Karnataka",
-              postalCode: "560041",
+              postalCode: "560011",
               addressCountry: "IN",
             },
           }),
