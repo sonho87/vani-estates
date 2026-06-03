@@ -1,0 +1,53 @@
+# Old SPA query-string URLs → new clean URLs (Cloudflare Pages 301 redirects)
+
+# Properties
+/?property=1    /properties/3-bhk-flat-mantri-woodlands-arakere/ 301
+/?property=2    /properties/2-bhk-flat-asha-kiran-apartment-basavanagudi/ 301
+/?property=3    /properties/2-bhk-for-rent-majestic-fortune-jp-nagar/ 301
+/?property=4    /properties/35-bhk-independent-house-jayanagar-4th-t-block/ 301
+/?property=5    /properties/2-bhk-flat-vani-apartments-jayanagar-3rd-east-block/ 301
+/?property=6    /properties/4-bhk-luxury-condovilla-maratt-pimento-jp-nagar/ 301
+/?property=7    /properties/4-bhk-ultra-luxury-vaishnavi-terraces-jp-nagar/ 301
+/?property=8    /properties/commercial-warehouse-pattabhirama-nagar-jayanagar/ 301
+/?property=9    /properties/2-bhk-flat-sohum-isiri-whitefield/ 301
+/?property=10   /properties/1-bhk-flat-godrej-nurture-electronic-city/ 301
+/?property=11   /properties/4-bhk-independent-house-vijaya-nivas-bilekahalli/ 301
+/?property=12   /properties/3-bhk-flat-mahaveer-sitara-jp-nagar-7th-phase/ 301
+/?property=13   /properties/3-bhk-apartment-for-rent-total-environment-learning-to-fly-jp-nagar-6th-phase/ 301
+
+# Blog articles
+/?article=1    /blog/why-jayanagar-is-bangalores-most-sought-after-neighbourhood-for-homebuyers-in-2026/ 301
+/?article=2    /blog/complete-guide-to-buying-property-in-south-bangalore-in-2026/ 301
+/?article=3    /blog/flat-vs-independent-house-in-jayanagar-which-is-a-better-investment-in-2026/ 301
+/?article=4    /blog/jp-nagar-property-guide-2026-best-phases-prices-investment-potential/ 301
+/?article=5    /blog/banashankari-real-estate-guide-why-smart-buyers-are-looking-here-in-2026/ 301
+/?article=6    /blog/how-to-get-your-property-documents-verified-in-bangalore-a-complete-checklist/ 301
+/?article=7    /blog/bbmp-vs-bda-plots-in-bangalore-what-every-buyer-must-know/ 301
+/?article=8    /blog/best-real-estate-agent-in-jayanagar-bangalore-what-to-look-for-when-choosing/ 301
+/?article=9    /blog/top-10-things-to-check-before-buying-a-resale-flat-in-bangalore/ 301
+/?article=10   /blog/property-price-trends-in-south-bangalore-2026-jayanagar-jp-nagar-banashankari-btm-layout-compared/ 301
+/?article=11   /blog/best-blocks-for-residential-properties-in-jayanagar-2026-guide/ 301
+/?article=12   /blog/commercial-property-in-jayanagar-why-returns-outperform-bank-interest/ 301
+/?article=13   /blog/independent-house-vs-apartment-in-jayanagar-where-should-you-invest/ 301
+/?article=14   /blog/jp-nagar-phase-7-and-8-south-bangalores-new-real-estate-hotspots/ 301
+/?article=15   /blog/3-bhk-rental-trends-in-jp-nagar-2026-market-report/ 301
+/?article=16   /blog/a-buyers-guide-to-maratt-pimento-luxury-properties-in-jp-nagar/ 301
+/?article=17   /blog/how-to-get-your-e-khata-in-bangalore-dont-fall-for-scams-2026-guide/ 301
+/?article=18   /blog/banashankari-3rd-stage-vs-6th-stage-where-should-you-invest-in-2026/ 301
+/?article=19   /blog/basavanagudi-real-estate-2026-balancing-heritage-charm-with-modern-returns/ 301
+/?article=20   /blog/mantri-woodlands-review-2026-a-green-oasis-on-bannerghatta-road/ 301
+/?article=21   /blog/inside-vaishnavi-terraces-jp-nagars-premier-ultra-luxury-address/ 301
+/?article=22   /blog/bangalores-second-airport-how-the-proposed-kanakapura-road-sites-will-shift-real-estate/ 301
+/?article=23   /blog/namma-metro-phase-3-bangalore-business-corridor-the-2026-game-changers/ 301
+/?article=24   /blog/2-bhk-flats-for-sale-in-jayanagar-under-1-crore-complete-2026-buyers-guide/ 301
+/?article=25   /blog/best-gated-communities-in-jp-nagar-2026-pricing-amenities-investment-returns/ 301
+/?article=26   /blog/property-registration-charges-in-karnataka-2026-complete-cost-breakdown/ 301
+/?article=27   /blog/whitefield-vs-jp-nagar-in-2026-where-should-it-professionals-buy/ 301
+/?article=28   /blog/senior-living-in-south-bangalore-best-localities-for-retirees-in-2026/ 301
+/?article=29   /blog/how-to-verify-khata-ec-and-title-documents-before-buying-property-in-bangalore/ 301
+/?article=30   /blog/apartment-vs-independent-house-in-bangalore-2026-which-is-the-better-investment/ 301
+/?article=31   /blog/top-7-mistakes-first-time-home-buyers-make-in-bangalore-and-how-to-avoid-them/ 301
+/?article=32   /blog/rental-yield-comparison-best-areas-to-buy-for-rental-income-in-south-bangalore-2026/ 301
+/?article=33   /blog/banashankari-6th-stage-real-estate-guide-2026-the-next-big-investment-hotspot/ 301
+/?article=34   /blog/real-estate-investing-in-bangalore-2026-how-to-build-wealth-through-property-without-making-costly-mistakes/ 301
+/?article=35   /blog/justdial-for-real-estate-can-you-really-trust-online-listings-an-honest-guide-for-bangalore-property-buyers/ 301
