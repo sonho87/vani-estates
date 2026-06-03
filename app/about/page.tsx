@@ -25,18 +25,28 @@ export default function AboutPage() {
       </div>
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 pt-8 pb-16">
-        <p className="text-[#C9A055] text-xs uppercase tracking-[4px] mb-3">About Us</p>
-        <h1 className="text-3xl md:text-5xl font-light mb-6 max-w-3xl">
-          South Bangalore&apos;s Trusted Real Estate Partner Since{" "}
-          <span className="font-semibold text-[#C9A055]">2010</span>
+      <section className="max-w-7xl mx-auto px-4 pt-12 pb-20">
+        <p
+          className="text-[11px] mb-4 font-sans-ui"
+          style={{ color: "#C9A055", letterSpacing: 5, textTransform: "uppercase" }}
+        >
+          About Us
+        </p>
+        <h1
+          className="font-serif-display max-w-3xl mb-8 leading-[1.05]"
+          style={{ fontSize: "clamp(40px, 6vw, 72px)", color: "#F5EFE8", fontWeight: 300 }}
+        >
+          South Bangalore&apos;s{" "}
+          <em className="font-normal not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
+            most trusted
+          </em>{" "}
+          property name — since 1990.
         </h1>
-        <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
-          Vani Estates is a RERA registered real estate agency founded in 2010 by{" "}
-          <span className="text-gray-200">Amarnath R</span>, who brings over 35 years
-          of real estate experience in South Bangalore. We help families and investors
-          buy, sell and rent property across Jayanagar, JP Nagar, Banashankari and
-          Basavanagudi.
+        <p className="text-gray-400 text-lg leading-relaxed max-w-3xl font-sans-ui">
+          Vani Estates is a RERA registered real estate agency built on three decades of
+          local relationships. <span className="text-gray-200">Amarnath R</span> brings
+          over 35 years of South Bangalore real estate experience to every deal — from
+          first-time buyers in Jayanagar to NRI clients managing property from abroad.
         </p>
       </section>
 
@@ -64,7 +74,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-2xl font-light mb-4">Our Story</h2>
+              <h2 className="text-3xl mb-5 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 400 }}>Our Story</h2>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
                 Founded in 2010 by Amarnath R, Vani Estates was built on a simple
                 principle — honest, transparent property advice that puts the client first.
@@ -81,7 +91,7 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-light mb-4">Where We Specialise</h2>
+              <h2 className="text-3xl mb-5 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 400 }}>Where We Specialise</h2>
               <div className="flex flex-wrap gap-2">
                 {["Jayanagar", "JP Nagar", "Banashankari", "Basavanagudi"].map((l) => (
                   <span
@@ -95,7 +105,7 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-light mb-4">Our Services</h2>
+              <h2 className="text-3xl mb-5 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 400 }}>Our Services</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   { t: "Property Buying", d: "Curated listings and end-to-end support for homebuyers and investors." },
@@ -149,7 +159,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-b from-[#0a0a0a] to-[#111] text-center">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-light mb-6">Let&apos;s Find Your Next Property</h2>
+          <h2 className="text-4xl md:text-5xl mb-6 font-serif-display leading-tight" style={{ color: "#F5EFE8", fontWeight: 400 }}>Let&apos;s find your <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>next address</em>.</h2>
           <p className="text-gray-500 mb-8">
             35+ years of local expertise, just a message away.
           </p>

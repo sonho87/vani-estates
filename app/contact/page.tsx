@@ -25,12 +25,26 @@ export default function ContactPage() {
       </div>
 
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 pt-8 pb-12">
-        <p className="text-[#C9A055] text-xs uppercase tracking-[4px] mb-3">Get In Touch</p>
-        <h1 className="text-3xl md:text-5xl font-light mb-6">Contact Vani Estates</h1>
-        <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
-          Looking to buy, sell or rent in South Bangalore? Reach out and our team will help you
-          at every step. The fastest way to reach us is on WhatsApp.
+      <section className="max-w-7xl mx-auto px-4 pt-12 pb-16">
+        <p
+          className="text-[11px] mb-4 font-sans-ui"
+          style={{ color: "#C9A055", letterSpacing: 5, textTransform: "uppercase" }}
+        >
+          Get In Touch
+        </p>
+        <h1
+          className="font-serif-display mb-6 leading-[1.05]"
+          style={{ fontSize: "clamp(40px, 6vw, 72px)", color: "#F5EFE8", fontWeight: 300 }}
+        >
+          Let&apos;s start a{" "}
+          <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
+            conversation
+          </em>
+          .
+        </h1>
+        <p className="text-gray-400 text-lg leading-relaxed max-w-2xl font-sans-ui">
+          Looking to buy, sell or rent in South Bangalore? The fastest way to reach us is on
+          WhatsApp — we usually reply within the hour.
         </p>
       </section>
 
@@ -95,7 +109,7 @@ export default function ContactPage() {
             target="_blank"
             className="bg-[#111] border border-[#222] p-6 space-y-4"
           >
-            <h2 className="text-lg font-medium">Send Us a Message</h2>
+            <h2 className="text-2xl font-serif-display" style={{ color: "#F5EFE8", fontWeight: 500 }}>Send us a message</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               <input
                 type="text"

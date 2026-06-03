@@ -76,9 +76,19 @@ export default async function PropertyPage({ params }: any) {
               {p.badge && <span className="bg-[#C9A055] text-black text-xs font-semibold px-3 py-1">{p.badge}</span>}
               <span className="text-gray-600 text-xs uppercase tracking-wider">{p.status === "Rent" ? "For Rent" : "For Sale"}</span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-light mb-2">{p.title}</h1>
-            <p className="text-gray-500 mb-6">{p.locality}, {p.city} · {p.type}</p>
-            <div className="text-3xl font-semibold text-[#C9A055] mb-8">{formatPrice(p.price, p.status)}</div>
+            <h1
+              className="font-serif-display mb-3 leading-[1.1]"
+              style={{ fontSize: "clamp(28px, 4vw, 48px)", color: "#F5EFE8", fontWeight: 400 }}
+            >
+              {p.title}
+            </h1>
+            <p className="text-gray-500 mb-6 font-sans-ui">{p.locality}, {p.city} · {p.type}</p>
+            <div
+              className="mb-8 font-serif-display"
+              style={{ fontSize: 38, fontWeight: 600, color: "#C9A055", lineHeight: 1 }}
+            >
+              {formatPrice(p.price, p.status)}
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {[
@@ -99,13 +109,13 @@ export default async function PropertyPage({ params }: any) {
             </div>
 
             <div className="mb-10">
-              <h2 className="text-lg font-medium mb-4">Description</h2>
+              <h2 className="text-2xl mb-4 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 500 }}>Description</h2>
               <p className="text-gray-400 text-sm leading-relaxed">{p.description}</p>
             </div>
 
             {p.amenities && p.amenities.length > 0 && (
               <div className="mb-10">
-                <h2 className="text-lg font-medium mb-4">Amenities</h2>
+                <h2 className="text-2xl mb-4 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 500 }}>Amenities</h2>
                 <div className="flex flex-wrap gap-2">
                   {p.amenities.map((a: string) => (
                     <span key={a} className="bg-[#111] border border-[#222] px-3 py-2 text-xs text-gray-400">{a}</span>
@@ -116,7 +126,7 @@ export default async function PropertyPage({ params }: any) {
 
             {p.neighbourhood && (
               <div className="mb-10">
-                <h2 className="text-lg font-medium mb-4">About {p.locality}</h2>
+                <h2 className="text-2xl mb-4 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 500 }}>About {p.locality}</h2>
                 <p className="text-gray-400 text-sm leading-relaxed">{p.neighbourhood}</p>
               </div>
             )}
@@ -124,7 +134,7 @@ export default async function PropertyPage({ params }: any) {
 
           <div>
             <div className="bg-[#111] border border-[#222] p-6 sticky top-24">
-              <h3 className="text-lg font-medium mb-4">Interested in this property?</h3>
+              <h3 className="text-2xl mb-4 font-serif-display" style={{ color: "#F5EFE8", fontWeight: 500 }}>Interested in this property?</h3>
               <p className="text-gray-500 text-sm mb-6">Contact us for site visits, pricing, and documentation.</p>
               <a href={`https://wa.me/919845012548?text=${encodeURIComponent(`Hi, I'm interested in: ${p.title} (${formatPrice(p.price, p.status)})`)}`} target="_blank" className="block w-full bg-[#25D366] text-white text-center font-semibold py-3 text-sm tracking-wider mb-3 hover:bg-[#1da851] transition">WhatsApp Enquiry</a>
               <a href="tel:+919845012548" className="block w-full border border-[#C9A055] text-[#C9A055] text-center font-semibold py-3 text-sm tracking-wider hover:bg-[#C9A055] hover:text-black transition">Call Now</a>

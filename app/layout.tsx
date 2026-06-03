@@ -24,9 +24,20 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
-            <h3 className="text-lg font-semibold mb-4" style={{ color: "#C9A055" }}>VANI ESTATES</h3>
+            <h3
+              className="text-2xl mb-1"
+              style={{ color: "#F5EFE8", fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, letterSpacing: 1 }}
+            >
+              VANI ESTATES
+            </h3>
+            <div
+              className="text-[10px] mb-4"
+              style={{ color: "#C9A055", letterSpacing: 3, textTransform: "uppercase", fontFamily: "Jost, sans-serif" }}
+            >
+              Property Consultants
+            </div>
             <p className="text-gray-500 text-sm leading-relaxed">
-              RERA Registered: PRM/KA/RERA/1251/310/AG/250523/005790. Trusted real estate services in South Bangalore since 2010.
+              RERA Registered: PRM/KA/RERA/1251/310/AG/250523/005790. Jayanagar&apos;s most trusted real estate name since 1990.
             </p>
           </div>
           <div>
@@ -68,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>

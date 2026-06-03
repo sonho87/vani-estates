@@ -12,9 +12,22 @@ export default function PropertiesPage() {
   return (
     <section className="py-12 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4">
-        <p className="text-[#C9A055] text-xs uppercase tracking-[4px] mb-3">Our Listings</p>
-        <h1 className="text-3xl font-light mb-3">Properties in South Bangalore</h1>
-        <p className="text-gray-500 mb-10">{properties.length} properties found</p>
+        <p
+          className="text-[11px] mb-4 font-sans-ui"
+          style={{ color: "#C9A055", letterSpacing: 5, textTransform: "uppercase" }}
+        >
+          Our Listings
+        </p>
+        <h1
+          className="font-serif-display mb-4 leading-[1.05]"
+          style={{ fontSize: "clamp(36px, 5vw, 60px)", color: "#F5EFE8", fontWeight: 300 }}
+        >
+          Properties in{" "}
+          <em className="not-italic" style={{ color: "#C9A055", fontStyle: "italic" }}>
+            South Bangalore
+          </em>
+        </h1>
+        <p className="text-gray-500 mb-12 font-sans-ui">{properties.length} hand-picked listings</p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((p: any) => (
@@ -25,7 +38,7 @@ export default function PropertiesPage() {
                 <span className="absolute top-3 right-3 bg-black/70 text-gray-300 text-xs px-3 py-1">{p.status === "Rent" ? "For Rent" : "For Sale"}</span>
               </div>
               <div className="p-5">
-                <h2 className="font-medium text-sm mb-2 line-clamp-2">{p.title}</h2>
+                <h2 className="font-serif-display text-xl mb-2 line-clamp-2 group-hover:text-[#C9A055] transition" style={{ color: "#F5EFE8", fontWeight: 500, lineHeight: 1.2 }}>{p.title}</h2>
                 <p className="text-gray-500 text-xs mb-3">{p.locality}, {p.city} · {p.type}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-[#C9A055] font-semibold">{formatPrice(p.price, p.status)}</span>

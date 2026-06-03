@@ -30,8 +30,13 @@ export default async function BlogPost({ params }: any) {
         </nav>
       </div>
       <header className="max-w-4xl mx-auto px-4 py-8">
-        <span className="text-[#C9A055] text-xs uppercase tracking-[3px]">{blog.category}</span>
-        <h1 className="text-2xl md:text-4xl font-light mt-3 mb-4 leading-tight">{blog.title}</h1>
+        <span className="text-[#C9A055] text-[10px] uppercase font-sans-ui" style={{ letterSpacing: 4 }}>{blog.category}</span>
+        <h1
+          className="font-serif-display mt-4 mb-5 leading-[1.1]"
+          style={{ fontSize: "clamp(32px, 4.5vw, 56px)", color: "#F5EFE8", fontWeight: 400 }}
+        >
+          {blog.title}
+        </h1>
         <div className="flex items-center gap-4 text-sm text-gray-500">
           <span>{blog.date}</span><span>·</span><span>By Vani Estates</span>
         </div>
@@ -41,7 +46,7 @@ export default async function BlogPost({ params }: any) {
       </div>
       <div className="max-w-4xl mx-auto px-4 pb-16">
         <div className="bg-[#111] border border-[#222] p-8 text-center">
-          <h3 className="text-lg font-medium mb-3">Looking for Property in South Bangalore?</h3>
+          <h3 className="font-serif-display text-2xl mb-3" style={{ color: "#F5EFE8", fontWeight: 500 }}>Looking for property in South Bangalore?</h3>
           <p className="text-gray-500 text-sm mb-6">Talk to our experts about buying, selling, or renting.</p>
           <a href="https://wa.me/919845012548" target="_blank" className="inline-block bg-[#C9A055] text-black font-semibold px-8 py-3 text-sm tracking-wider uppercase hover:bg-[#b8913e] transition">Contact Vani Estates</a>
         </div>

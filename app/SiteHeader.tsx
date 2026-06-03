@@ -17,9 +17,29 @@ export default function SiteHeader() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-b border-[#222]">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="text-xl font-semibold tracking-wide" style={{ color: "#C9A055" }}>
+        <Link href="/" className="flex flex-col leading-none" onClick={() => setOpen(false)}>
+          <span
+            className="text-xl md:text-[22px]"
+            style={{
+              color: "#F5EFE8",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              letterSpacing: 1,
+              lineHeight: 1,
+            }}
+          >
             VANI ESTATES
+          </span>
+          <span
+            className="hidden sm:block text-[9px] mt-1"
+            style={{
+              color: "#C9A055",
+              fontFamily: "Jost, sans-serif",
+              letterSpacing: 3,
+              textTransform: "uppercase",
+            }}
+          >
+            Property Consultants
           </span>
         </Link>
 
@@ -28,7 +48,8 @@ export default function SiteHeader() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm tracking-wider uppercase text-gray-400 hover:text-[#C9A055] transition"
+              className="text-[12px] uppercase text-gray-400 hover:text-[#C9A055] transition"
+              style={{ fontFamily: "Jost, sans-serif", letterSpacing: 1.5 }}
             >
               {l.label}
             </Link>
