@@ -223,6 +223,7 @@ export default function AboutPage() {
                 role: "Founder & CEO",
                 exp: "35 Years",
                 phone: "+91 98450 12548",
+                photo: "/logo.jpg",
                 bio: "Amarnath R is the heart of Vani Estates. With over 35 years in South Bangalore's real estate market, he brings unmatched expertise in property valuation, legal documentation, negotiation and registration. He also owns the iconic Vani Circulating Library in Jayanagar 2nd Block.",
               },
               {
@@ -230,6 +231,7 @@ export default function AboutPage() {
                 role: "Senior Property Consultant",
                 exp: "14 Years",
                 phone: "+91 98450 12548",
+                photo: null,
                 bio: "Rakesh brings 14 years of hands-on experience in South Bangalore's residential market. With deep knowledge of JP Nagar, Banashankari and Basavanagudi, he helps buyers and sellers navigate the market with confidence and clarity.",
               },
             ].map((a) => (
@@ -237,20 +239,31 @@ export default function AboutPage() {
                 key={a.name}
                 className="bg-white border border-[#DDD8CE] flex gap-7 p-9"
               >
-                <div
-                  className="flex-shrink-0 w-24 h-24 rounded-full flex items-center justify-center"
-                  style={{
-                    background: "#EDE8DF",
-                    border: "2px solid rgba(201,160,85,0.35)",
-                    color: "#C9A055",
-                    opacity: 0.7,
-                    ...serif,
-                    fontSize: 38,
-                    fontWeight: 600,
-                  }}
-                >
-                  {a.name.charAt(0)}
-                </div>
+                {a.photo ? (
+                  <img
+                    src={a.photo}
+                    alt={a.name}
+                    className="flex-shrink-0 w-24 h-24 rounded-full object-cover"
+                    style={{
+                      border: "2px solid rgba(201,160,85,0.45)",
+                    }}
+                  />
+                ) : (
+                  <div
+                    className="flex-shrink-0 w-24 h-24 rounded-full flex items-center justify-center"
+                    style={{
+                      background: "#EDE8DF",
+                      border: "2px solid rgba(201,160,85,0.35)",
+                      color: "#C9A055",
+                      opacity: 0.7,
+                      ...serif,
+                      fontSize: 38,
+                      fontWeight: 600,
+                    }}
+                  >
+                    {a.name.charAt(0)}
+                  </div>
+                )}
                 <div className="flex-1">
                   <h3
                     className="text-2xl mb-1"

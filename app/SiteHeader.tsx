@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Buy", href: "/properties/" },
-  { label: "Rent", href: "/properties/" },
-  { label: "Resale", href: "/properties/" },
-  { label: "New Projects", href: "/properties/" },
-  { label: "About Us", href: "/about/" },
-  { label: "Agents", href: "/about/#team" },
-  { label: "Blog", href: "/blog/" },
-  { label: "Contact", href: "/contact/" },
+  { label: "Home",         href: "/" },
+  { label: "Buy",          href: "/properties/?filter=Sale" },
+  { label: "Rent",         href: "/properties/?filter=Rent" },
+  { label: "New Projects", href: "/properties/?filter=New" },
+  { label: "About Us",     href: "/about/" },
+  { label: "Team",         href: "/about/#team" },
+  { label: "Blog",         href: "/blog/" },
+  { label: "Contact",      href: "/contact/" },
 ];
 
 export default function SiteHeader() {
@@ -46,7 +46,7 @@ export default function SiteHeader() {
             alt="Vani Estates"
             width={44}
             height={44}
-            className="rounded-sm object-contain"
+            className="rounded-sm object-cover"
             style={{ height: 44, width: 44 }}
           />
           <span className="leading-none">
@@ -77,7 +77,7 @@ export default function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-6">
           {navItems.map((l) => (
             <Link
               key={l.label}
@@ -85,7 +85,7 @@ export default function SiteHeader() {
               className="text-[13px] hover:text-[#C9A055] transition"
               style={{
                 fontFamily: "var(--sans)",
-                color: "#7A6F60",
+                color: "#5A4F40",
                 letterSpacing: 1,
               }}
             >
