@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About Vani Estates — RERA Registered Real Estate Agents in Bangalore",
   description:
-    "Vani Estates is a RERA registered real estate agency founded in 2010 by Amarnath R. 14+ years of trusted property dealing across Jayanagar, JP Nagar, Banashankari & Basavanagudi in South Bangalore.",
+    "Vani Estates is a RERA registered real estate agency founded in 2010 by Amarnath R. 35+ years of trusted property dealing across Jayanagar, JP Nagar, Banashankari & Basavanagudi in South Bangalore.",
   openGraph: {
     title: "About Vani Estates — RERA Registered Real Estate Agents in Bangalore",
     description:
-      "Founded in 2010 by Amarnath R. 14+ years, 500+ properties dealt, 4.9★ Google rating. Buying, selling, renting & NRI property management in South Bangalore.",
+      "Founded in 2010 by Amarnath R. 35+ years of expertise, 500+ properties dealt, 4.9★ Google rating. Buying, selling, renting & NRI property management in South Bangalore.",
   },
 };
 
@@ -33,9 +33,10 @@ export default function AboutPage() {
         </h1>
         <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
           Vani Estates is a RERA registered real estate agency founded in 2010 by{" "}
-          <span className="text-gray-200">Amarnath R</span>. For over 14 years we have helped
-          families and investors buy, sell and rent property across the heart of South
-          Bangalore — Jayanagar, JP Nagar, Banashankari and Basavanagudi.
+          <span className="text-gray-200">Amarnath R</span>, who brings over 35 years
+          of real estate experience in South Bangalore. We help families and investors
+          buy, sell and rent property across Jayanagar, JP Nagar, Banashankari and
+          Basavanagudi.
         </p>
       </section>
 
@@ -44,7 +45,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { num: "14+", label: "Years Experience" },
+              { num: "35+", label: "Years Experience" },
               { num: "500+", label: "Properties Dealt" },
               { num: "4.9★", label: "Google Rating (16 reviews)" },
               { num: "RERA", label: "Registered Agent" },
@@ -150,7 +151,7 @@ export default function AboutPage() {
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl font-light mb-6">Let&apos;s Find Your Next Property</h2>
           <p className="text-gray-500 mb-8">
-            14+ years of local expertise, just a message away.
+            35+ years of local expertise, just a message away.
           </p>
           <a
             href="https://wa.me/919845012548"

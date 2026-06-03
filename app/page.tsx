@@ -18,7 +18,7 @@ export default function Home() {
             <span className="font-semibold" style={{ color: "#C9A055" }}>Property in Bangalore</span>
           </h1>
           <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-            RERA registered agency with 14+ years of expertise in Jayanagar, JP Nagar, Banashankari & Basavanagudi.
+            RERA registered agency with 35+ years of expertise in Jayanagar, JP Nagar, Banashankari & Basavanagudi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/properties/" className="bg-[#C9A055] text-black font-semibold px-8 py-4 text-sm tracking-wider uppercase hover:bg-[#b8913e] transition">
@@ -70,7 +70,7 @@ export default function Home() {
           <h2 className="text-3xl font-light mb-12">Trusted by 500+ Families</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { num: "14+", label: "Years Experience" },
+              { num: "35+", label: "Years Experience" },
               { num: "500+", label: "Properties Dealt" },
               { num: "4.9★", label: "Google Rating" },
               { num: "RERA", label: "Registered Agent" },

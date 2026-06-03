@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     default: "Vani Estates — Trusted Real Estate Agents in South Bangalore",
     template: "%s | Vani Estates",
   },
-  description: "RERA registered real estate agency specializing in Jayanagar, JP Nagar, Banashankari & Basavanagudi. 14+ years of trusted property dealing in South Bangalore.",
+  description: "RERA registered real estate agency specializing in Jayanagar, JP Nagar, Banashankari & Basavanagudi. 35+ years of trusted property dealing in South Bangalore.",
   keywords: ["real estate bangalore", "property jayanagar", "real estate agents south bangalore", "vani estates"],
   metadataBase: new URL("https://www.vaniestates.com"),
   openGraph: {
