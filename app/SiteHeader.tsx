@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const navItems = [
   { label: "Home",         href: "/" },
@@ -15,6 +16,79 @@ const navItems = [
 ];
 
 export default function SiteHeader() {
+  // useSearchParams requires a Suspense boundary in Next 16 when used
+  // inside a statically-rendered route. Wrap the inner that needs it.
+  return (
+    <Suspense fallback={<HeaderShell />}>
+      <SiteHeaderInner />
+    </Suspense>
+  );
+}
+
+// Skeleton shown during hydration. Same chrome, no active highlight yet.
+function HeaderShell() {
+  return <ActualHeader pathname="" filter={null} teamInView={false} />;
+}
+
+function SiteHeaderInner() {
+  const pathname = usePathname() || "";
+  const searchParams = useSearchParams();
+  const filter = searchParams?.get("filter") ?? null;
+
+  // On the About page, switch the active state to "Team" when the team
+  // section is visible (so scrolling subtly shifts which nav item is lit).
+  const [teamInView, setTeamInView] = useState(false);
+  useEffect(() => {
+    if (pathname !== "/about/") {
+      setTeamInView(false);
+      return;
+    }
+    const el = document.getElementById("team");
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => setTeamInView(entries[0]?.isIntersecting ?? false),
+      // Roughly: team is "active" when its top has scrolled into the upper half of the viewport
+      { rootMargin: "-25% 0px -55% 0px", threshold: 0 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [pathname]);
+
+  return <ActualHeader pathname={pathname} filter={filter} teamInView={teamInView} />;
+}
+
+function isActive(label: string, pathname: string, filter: string | null, teamInView: boolean) {
+  switch (label) {
+    case "Home":
+      return pathname === "/";
+    case "Buy":
+      return pathname === "/properties/" && filter === "Sale";
+    case "Rent":
+      return pathname === "/properties/" && filter === "Rent";
+    case "New Projects":
+      return pathname === "/properties/" && filter === "New";
+    case "About Us":
+      return pathname === "/about/" && !teamInView;
+    case "Team":
+      return pathname === "/about/" && teamInView;
+    case "Blog":
+      return pathname.startsWith("/blog");
+    case "Contact":
+      return pathname === "/contact/";
+    default:
+      return false;
+  }
+}
+
+function ActualHeader({
+  pathname,
+  filter,
+  teamInView,
+}: {
+  pathname: string;
+  filter: string | null;
+  teamInView: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -78,20 +152,28 @@ export default function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-6">
-          {navItems.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="text-[13px] hover:text-[#C9A055] transition"
-              style={{
-                fontFamily: "var(--sans)",
-                color: "#5A4F40",
-                letterSpacing: 1,
-              }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {navItems.map((l) => {
+            const active = isActive(l.label, pathname, filter, teamInView);
+            return (
+              <Link
+                key={l.label}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className="text-[13px] transition relative py-2"
+                style={{
+                  fontFamily: "var(--sans)",
+                  color: active ? "#C9A055" : "#5A4F40",
+                  letterSpacing: 1,
+                  borderBottom: active
+                    ? "1px solid #C9A055"
+                    : "1px solid transparent",
+                  fontWeight: active ? 600 : 400,
+                }}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
           <Link
             href="/contact/"
             className="ml-2 text-[12px] hover:bg-[#C9A055] hover:text-white transition"
@@ -141,17 +223,32 @@ export default function SiteHeader() {
         }`}
       >
         <div className="px-6 py-2 flex flex-col">
-          {navItems.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="py-3 text-sm hover:text-[#C9A055] border-b border-[#DDD8CE] transition"
-              style={{ fontFamily: "var(--sans)", color: "#5A4F40", letterSpacing: 1 }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {navItems.map((l) => {
+            const active = isActive(l.label, pathname, filter, teamInView);
+            return (
+              <Link
+                key={l.label}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                aria-current={active ? "page" : undefined}
+                className="py-3 text-sm transition border-b border-[#DDD8CE]"
+                style={{
+                  fontFamily: "var(--sans)",
+                  color: active ? "#C9A055" : "#5A4F40",
+                  letterSpacing: 1,
+                  fontWeight: active ? 600 : 400,
+                }}
+              >
+                {l.label}
+                {active && (
+                  <span
+                    className="ml-2 inline-block w-1.5 h-1.5 rounded-full"
+                    style={{ background: "#C9A055" }}
+                  />
+                )}
+              </Link>
+            );
+          })}
           <Link
             href="/contact/"
             onClick={() => setOpen(false)}

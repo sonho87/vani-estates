@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import SiteHeader from "./SiteHeader";
+import EMICalculator from "./EMICalculator";
 
 export const metadata: Metadata = {
   title: {
@@ -141,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main className="pt-20 min-h-screen">{children}</main>
         <Footer />
+        <EMICalculator />
         <FloatingWhatsApp />
       </body>
     </html>
