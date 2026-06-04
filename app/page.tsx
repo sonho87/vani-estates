@@ -82,10 +82,15 @@ export default function Home() {
             className="bg-white border border-[#DDD8CE] shadow-sm fade-in mx-auto max-w-3xl text-left"
           >
             <div className="flex border-b border-[#DDD8CE]">
-              {["Buy", "Rent", "Resale", "New Projects"].map((t, i) => (
-                <div
-                  key={t}
-                  className="flex-1 text-center py-3 cursor-default"
+              {[
+                { label: "Buy", href: "/properties/?filter=Sale" },
+                { label: "Rent", href: "/properties/?filter=Rent" },
+                { label: "New Projects", href: "/properties/?filter=New" },
+              ].map((t, i) => (
+                <Link
+                  key={t.label}
+                  href={t.href}
+                  className="flex-1 text-center py-3 hover:text-[#C9A055] transition"
                   style={{
                     fontFamily: "var(--sans)",
                     fontSize: 13,
@@ -96,8 +101,8 @@ export default function Home() {
                     marginBottom: -1,
                   }}
                 >
-                  {t}
-                </div>
+                  {t.label}
+                </Link>
               ))}
             </div>
             <div
