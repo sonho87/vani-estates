@@ -223,16 +223,16 @@ export default function AboutPage() {
                 role: "Founder & CEO",
                 exp: "35 Years",
                 phone: "+91 98450 12548",
-                photo: "/logo.jpg",
+                photo: "/amarnath.jpg",
                 bio: "Amarnath R is the heart of Vani Estates. With over 35 years in South Bangalore's real estate market, he brings unmatched expertise in property valuation, legal documentation, negotiation and registration. He also owns the iconic Vani Circulating Library in Jayanagar 2nd Block.",
               },
               {
-                name: "Rakesh Lakshman",
+                name: "Raakhesh Lakshman",
                 role: "Senior Property Consultant",
                 exp: "14 Years",
                 phone: "+91 98450 12548",
                 photo: null,
-                bio: "Rakesh brings 14 years of hands-on experience in South Bangalore's residential market. With deep knowledge of JP Nagar, Banashankari and Basavanagudi, he helps buyers and sellers navigate the market with confidence and clarity.",
+                bio: "Raakhesh brings 14 years of hands-on experience in South Bangalore's residential market. With deep knowledge of JP Nagar, Banashankari and Basavanagudi, he helps buyers and sellers navigate the market with confidence and clarity.",
               },
             ].map((a) => (
               <div
