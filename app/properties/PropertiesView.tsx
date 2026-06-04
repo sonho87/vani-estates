@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { formatPrice } from "@/lib/utils";
 
 const serif = { fontFamily: "var(--serif)" };
@@ -12,18 +13,32 @@ const STATUS_TABS = ["All", "Sale", "Rent", "New"] as const;
 type Status = (typeof STATUS_TABS)[number];
 
 export default function PropertiesView({ properties }: { properties: Property[] }) {
+  return (
+    <Suspense fallback={null}>
+      <PropertiesViewInner properties={properties} />
+    </Suspense>
+  );
+}
+
+function PropertiesViewInner({ properties }: { properties: Property[] }) {
   const [view, setView] = useState<"card" | "list">("card");
   const [status, setStatus] = useState<Status>("All");
   const [locality, setLocality] = useState<string>("All");
   const [bhkFilter, setBhkFilter] = useState<string>("All");
 
-  // Read ?filter= from URL on mount
+  // Reactively read ?filter= from URL — updates when user clicks
+  // Buy/Rent/New Projects in the nav while already on this page.
+  const searchParams = useSearchParams();
+  const filterFromUrl = searchParams?.get("filter") ?? null;
+
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    const f = params.get("filter");
-    if (f === "Sale" || f === "Rent" || f === "New") setStatus(f);
-  }, []);
+    if (filterFromUrl === "Sale" || filterFromUrl === "Rent" || filterFromUrl === "New") {
+      setStatus(filterFromUrl);
+    } else if (filterFromUrl === null) {
+      // No ?filter= in URL → reset to All (e.g. user clicked "Home" then "Properties")
+      setStatus("All");
+    }
+  }, [filterFromUrl]);
 
   const localities = useMemo(
     () => ["All", ...Array.from(new Set(properties.map((p) => p.locality)))],

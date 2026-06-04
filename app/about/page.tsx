@@ -373,18 +373,32 @@ export default function AboutPage() {
             ))}
           </div>
           <div
-            className="border border-[#DDD8CE] overflow-hidden"
+            className="border border-[#DDD8CE] overflow-hidden flex flex-col"
             style={{ background: "#EDE8DF", minHeight: 320 }}
           >
             <iframe
               title="Vani Estates — Jayanagar 3rd Block"
-              src="https://www.google.com/maps?q=3rd+Block+Jayanagar,+Bangalore+560011&output=embed"
-              className="w-full h-full"
+              src="https://www.google.com/maps?q=Vani+Estates+%2314+9th+Main+Road+3rd+Block+Jayanagar+Bangalore+560011&output=embed"
+              className="w-full flex-1"
               style={{ border: 0, minHeight: 320 }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Vani+Estates+%2314+9th+Main+Road+3rd+Block+Jayanagar+Bangalore+560011"
+              target="_blank"
+              className="block bg-[#C9A055] text-white text-center py-3 hover:bg-[#b8913e] transition"
+              style={{
+                fontFamily: "var(--sans)",
+                fontSize: 12,
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                textTransform: "uppercase",
+              }}
+            >
+              Open in Google Maps
+            </a>
           </div>
         </div>
       </div>
