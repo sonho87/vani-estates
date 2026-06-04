@@ -3,6 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import SiteHeader from "./SiteHeader";
 import EMICalculator from "./EMICalculator";
+import ProtectContent from "./ProtectContent";
 
 export const metadata: Metadata = {
   title: {
@@ -144,6 +145,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <EMICalculator />
         <FloatingWhatsApp />
+        <ProtectContent />
       </body>
     </html>
   );
