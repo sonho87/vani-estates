@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Real Estate Blog — Guides, Tips & Market Insights",
   description:
     "Expert articles on buying, selling, and investing in Bangalore real estate. Locality guides for Jayanagar, JP Nagar, Banashankari, and document verification guides.",
+  alternates: { canonical: "/blog/" },
 };
 
 const serif = { fontFamily: "var(--serif)" };

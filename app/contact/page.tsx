@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Contact Vani Estates — Call, WhatsApp or Visit Us",
   description:
     "Get in touch with Vani Estates for buying, selling or renting property in South Bangalore. Call +91 98450 12548, WhatsApp, or visit our office in 3rd Block Jayanagar.",
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

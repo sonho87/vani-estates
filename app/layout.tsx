@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     "property consultants bangalore",
   ],
   metadataBase: new URL("https://www.vaniestates.com"),
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_IN",

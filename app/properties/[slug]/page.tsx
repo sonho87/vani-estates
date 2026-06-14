@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   return {
     title: `${p.title} — ${price}`,
     description: `${p.bhk} BHK ${p.type} ${p.status === "Rent" ? "for rent" : "for sale"} in ${p.locality}, Bangalore. ${p.area} sq.ft, ${p.floor} floor. ${p.description.substring(0, 120)}...`,
+    alternates: { canonical: `/properties/${p.slug}/` },
     openGraph: {
       title: p.title,
       description: `${price} · ${p.area} sq.ft · ${p.locality}`,
