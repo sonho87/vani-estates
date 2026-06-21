@@ -5,6 +5,62 @@ import Link from "next/link";
 
 const serif = { fontFamily: "var(--serif)" };
 
+// Convert the lightweight Markdown stored in lib/data.js (\n\n paragraphs,
+// **bold**, lines fully wrapped in ** as headings, "- " bullets, "1." lists)
+// into clean HTML. Without this the raw ** and run-on text show literally.
+function renderMarkdown(md: string): string {
+  const escapeHtml = (s: string) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const inline = (s: string) =>
+    escapeHtml(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+  const blocks = md.split(/\n\n+/);
+  const out: string[] = [];
+
+  for (const raw of blocks) {
+    const block = raw.trim();
+    if (!block) continue;
+    const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+
+    // Whole block is a single bold line → section heading
+    if (lines.length === 1 && /^\*\*(.+)\*\*$/.test(lines[0])) {
+      out.push(`<h2>${inline(lines[0].replace(/^\*\*|\*\*$/g, ""))}</h2>`);
+      continue;
+    }
+
+    // Bold heading line followed by body text/bullets in the same block
+    if (lines.length > 1 && /^\*\*(.+)\*\*$/.test(lines[0])) {
+      out.push(`<h3>${inline(lines[0].replace(/^\*\*|\*\*$/g, ""))}</h3>`);
+      const rest = lines.slice(1);
+      if (rest.every((l) => l.startsWith("- "))) {
+        out.push("<ul>" + rest.map((l) => `<li>${inline(l.slice(2))}</li>`).join("") + "</ul>");
+      } else if (rest.every((l) => /^\d+\.\s/.test(l))) {
+        out.push("<ol>" + rest.map((l) => `<li>${inline(l.replace(/^\d+\.\s/, ""))}</li>`).join("") + "</ol>");
+      } else {
+        out.push("<p>" + rest.map(inline).join("<br/>") + "</p>");
+      }
+      continue;
+    }
+
+    // Bullet list block
+    if (lines.every((l) => l.startsWith("- "))) {
+      out.push("<ul>" + lines.map((l) => `<li>${inline(l.slice(2))}</li>`).join("") + "</ul>");
+      continue;
+    }
+
+    // Numbered list block
+    if (lines.every((l) => /^\d+\.\s/.test(l))) {
+      out.push("<ol>" + lines.map((l) => `<li>${inline(l.replace(/^\d+\.\s/, ""))}</li>`).join("") + "</ol>");
+      continue;
+    }
+
+    // Plain paragraph (preserve internal single line breaks)
+    out.push("<p>" + lines.map(inline).join("<br/>") + "</p>");
+  }
+
+  return out.join("");
+}
+
 export function generateStaticParams() {
   return blogs.map((b: any) => ({ slug: b.slug }));
 }
@@ -83,14 +139,16 @@ export default async function BlogPost({ params }: any) {
             [&_h2]:font-serif-display [&_h2]:text-2xl md:[&_h2]:text-3xl [&_h2]:text-[#1A1410] [&_h2]:font-semibold [&_h2]:mt-12 [&_h2]:mb-4
             [&_h3]:font-serif-display [&_h3]:text-xl [&_h3]:text-[#1A1410] [&_h3]:font-semibold [&_h3]:mt-8 [&_h3]:mb-3
             [&_p]:text-[#5A4F40] [&_p]:leading-relaxed [&_p]:mb-5 [&_p]:text-[15px]
-            [&_ul]:text-[#5A4F40] [&_ul]:my-4 [&_li]:mb-2 [&_li]:leading-relaxed
+            [&_ul]:text-[#5A4F40] [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6
+            [&_ol]:text-[#5A4F40] [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6
+            [&_li]:mb-2 [&_li]:leading-relaxed
             [&_strong]:text-[#1A1410]
             [&_a]:text-[#C9A055] [&_a:hover]:underline
             [&_table]:w-full [&_table]:my-6
             [&_th]:bg-[#EDE8DF] [&_th]:border [&_th]:border-[#DDD8CE] [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:text-sm [&_th]:text-[#1A1410]
             [&_td]:bg-white [&_td]:border [&_td]:border-[#DDD8CE] [&_td]:px-3 [&_td]:py-2 [&_td]:text-sm [&_td]:text-[#5A4F40]"
           style={{ fontFamily: "var(--sans)" }}
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{ __html: renderMarkdown(blog.content) }}
         />
       </div>
 
