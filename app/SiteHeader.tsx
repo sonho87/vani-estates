@@ -9,6 +9,7 @@ const navItems = [
   { label: "Buy",          href: "/properties/?filter=Sale" },
   { label: "Rent",         href: "/properties/?filter=Rent" },
   { label: "New Projects", href: "/properties/?filter=New" },
+  { label: "Management",   href: "/property-management/" },
   { label: "About Us",     href: "/about/" },
   { label: "Team",         href: "/about/#team" },
   { label: "Blog",         href: "/blog/" },
@@ -67,6 +68,8 @@ function isActive(label: string, pathname: string, filter: string | null, teamIn
       return pathname === "/properties/" && filter === "Rent";
     case "New Projects":
       return pathname === "/properties/" && filter === "New";
+    case "Management":
+      return pathname === "/property-management/";
     case "About Us":
       return pathname === "/about/" && !teamInView;
     case "Team":
@@ -151,7 +154,7 @@ function ActualHeader({
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
           {navItems.map((l) => {
             const active = isActive(l.label, pathname, filter, teamInView);
             return (

@@ -226,8 +226,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────── FEATURED PROPERTIES ───────── */}
+      {/* ───────── OUR SERVICES ───────── */}
       <section className="py-24" style={{ background: "#F5F0E8" }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <div className="eyebrow mb-3">How We Help</div>
+            <h2
+              className="text-4xl md:text-5xl leading-tight"
+              style={{ ...serif, color: "#1A1410", fontWeight: 400 }}
+            >
+              Our Services
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: "⌂",
+                title: "Buying",
+                desc: "Curated, verified listings and end-to-end support for homebuyers and investors.",
+                href: "/properties/?filter=Sale",
+                cta: "Browse to buy",
+              },
+              {
+                icon: "⌖",
+                title: "Renting",
+                desc: "Quality rental homes and reliable tenants across South Bangalore.",
+                href: "/properties/?filter=Rent",
+                cta: "Browse rentals",
+              },
+              {
+                icon: "❖",
+                title: "Property Management",
+                desc: "We manage tenants, rent, maintenance and paperwork — ideal for NRIs and busy owners.",
+                href: "/property-management/",
+                cta: "Learn more",
+              },
+              {
+                icon: "✦",
+                title: "Selling",
+                desc: "Right valuation and trusted buyers to sell your property faster.",
+                href: "/contact/",
+                cta: "Talk to us",
+              },
+            ].map((s) => (
+              <Link
+                key={s.title}
+                href={s.href}
+                className="group bg-white border border-[#DDD8CE] hover:border-[#C9A055]/60 transition p-8 flex flex-col"
+              >
+                <div className="text-3xl mb-4 opacity-80" style={{ color: "#C9A055" }}>
+                  {s.icon}
+                </div>
+                <h3
+                  className="text-2xl mb-3"
+                  style={{ ...serif, color: "#1A1410", fontWeight: 600 }}
+                >
+                  {s.title}
+                </h3>
+                <p
+                  className="text-sm flex-1"
+                  style={{ fontFamily: "var(--sans)", color: "#7A6F60", lineHeight: 1.7 }}
+                >
+                  {s.desc}
+                </p>
+                <span
+                  className="mt-5 text-[#C9A055] group-hover:text-[#b8913e] transition"
+                  style={{ fontFamily: "var(--sans)", fontSize: 13, letterSpacing: 1 }}
+                >
+                  {s.cta} →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ───────── FEATURED PROPERTIES ───────── */}
+      <section className="py-24 border-t border-[#DDD8CE]" style={{ background: "#F5F0E8" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-14">
             <div>
