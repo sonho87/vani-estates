@@ -100,6 +100,7 @@ function Footer() {
             </h4>
             <div className="flex flex-col gap-2 text-sm text-[#7A6F60]">
               <Link href="/properties/" className="hover:text-[#C9A055] transition">Properties</Link>
+              <Link href="/projects/" className="hover:text-[#C9A055] transition">New Projects</Link>
               <Link href="/property-management/" className="hover:text-[#C9A055] transition">Property Management</Link>
               <Link href="/blog/" className="hover:text-[#C9A055] transition">Blog</Link>
               <Link href="/about/" className="hover:text-[#C9A055] transition">About Us</Link>

@@ -1,4 +1,5 @@
 import { properties, blogs } from "@/lib/data";
+import { projects } from "@/lib/projects";
 import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     { url: base + "/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 1 },
     { url: base + "/properties/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: base + "/projects/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: base + "/blog/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: base + "/property-management/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: base + "/about/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
@@ -34,5 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticPages, ...propertyPages, ...blogPages];
+  const projectPages = projects.map((p: any) => ({
+    url: `${base}/projects/${p.slug}/`,
+    lastModified: LAST_MODIFIED,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  return [...staticPages, ...propertyPages, ...projectPages, ...blogPages];
 }

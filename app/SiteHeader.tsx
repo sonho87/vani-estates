@@ -8,7 +8,7 @@ const navItems = [
   { label: "Home",         href: "/" },
   { label: "Buy",          href: "/properties/?filter=Sale" },
   { label: "Rent",         href: "/properties/?filter=Rent" },
-  { label: "New Projects", href: "/properties/?filter=New" },
+  { label: "New Projects", href: "/projects/" },
   { label: "Management",   href: "/property-management/" },
   { label: "About Us",     href: "/about/" },
   { label: "Team",         href: "/about/#team" },
@@ -67,7 +67,9 @@ function isActive(label: string, pathname: string, filter: string | null, teamIn
     case "Rent":
       return pathname === "/properties/" && filter === "Rent";
     case "New Projects":
-      return pathname === "/properties/" && filter === "New";
+      return pathname.startsWith("/projects");
+    case "Management":
+      return pathname === "/property-management/";
     case "Management":
       return pathname === "/property-management/";
     case "About Us":
