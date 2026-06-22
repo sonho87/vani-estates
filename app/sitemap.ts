@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + "/property-management/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: base + "/about/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/contact/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: base + "/privacy-policy/", lastModified: LAST_MODIFIED, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: base + "/terms/", lastModified: LAST_MODIFIED, changeFrequency: "yearly" as const, priority: 0.3 },
   ];
 
   const propertyPages = properties.map((p: any) => ({

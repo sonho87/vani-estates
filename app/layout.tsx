@@ -125,8 +125,12 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#DDD8CE] pt-8 text-center text-xs text-[#7A6F60]">
-          © {new Date().getFullYear()} Vani Estates · All rights reserved.
+        <div className="border-t border-[#DDD8CE] pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#7A6F60]">
+          <span>© {new Date().getFullYear()} Vani Estates · All rights reserved.</span>
+          <span className="flex gap-4">
+            <Link href="/privacy-policy/" className="hover:text-[#C9A055] transition">Privacy Policy</Link>
+            <Link href="/terms/" className="hover:text-[#C9A055] transition">Terms &amp; Disclaimer</Link>
+          </span>
         </div>
       </div>
     </footer>
