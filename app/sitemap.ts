@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 // Stable lastmod — bump this only when content meaningfully changes.
 // Using a fixed date (rather than new Date()) avoids signalling a fresh
 // "last modified" to Google on every deploy, which can erode crawl trust.
-const LAST_MODIFIED = "2026-06-14";
+const LAST_MODIFIED = "2026-06-22";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.vaniestates.com";
@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + "/properties/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: base + "/projects/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: base + "/blog/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: base + "/nri/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/property-management/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: base + "/about/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/contact/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
