@@ -1,5 +1,5 @@
 import { properties, blogs } from "@/lib/data";
-import { projects } from "@/lib/projects";
+import { publishedProjects, builders } from "@/lib/projects";
 import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + "/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 1 },
     { url: base + "/properties/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: base + "/projects/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: base + "/projects/builders/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/blog/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: base + "/nri/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/property-management/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
@@ -39,12 +40,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  const projectPages = projects.map((p: any) => ({
+  // Only PUBLISHED projects (real data + RERA) go in the sitemap.
+  // Placeholder projects are also noindex via their page metadata.
+  const projectPages = publishedProjects().map((p: any) => ({
     url: `${base}/projects/${p.slug}/`,
     lastModified: LAST_MODIFIED,
     changeFrequency: "weekly" as const,
     priority: 0.85,
   }));
 
-  return [...staticPages, ...propertyPages, ...projectPages, ...blogPages];
+  const builderPages = builders.map((b: any) => ({
+    url: `${base}/projects/builders/${b.slug}/`,
+    lastModified: LAST_MODIFIED,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [
+    ...staticPages,
+    ...propertyPages,
+    ...projectPages,
+    ...builderPages,
+    ...blogPages,
+  ];
 }

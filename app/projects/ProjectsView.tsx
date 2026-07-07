@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { projectStatuses } from "@/lib/projects";
 
@@ -14,15 +14,7 @@ const statusColor: Record<string, string> = {
   Completed: "#6A4FB6",
 };
 
-export default function ProjectsView({ projects }: { projects: any[] }) {
-  return (
-    <Suspense fallback={null}>
-      <ProjectsViewInner projects={projects} />
-    </Suspense>
-  );
-}
-
-function ProjectsViewInner({ projects }: { projects: any[] }) {
+export default function ProjectsView({ projects, builders }: { projects: any[]; builders: any[] }) {
   const [status, setStatus] = useState<string>("All");
   const searchParams = useSearchParams();
   const statusFromUrl = searchParams?.get("status") ?? null;
@@ -59,6 +51,34 @@ function ProjectsViewInner({ projects }: { projects: any[] }) {
           on completion, or buy a ready-to-move branded home, we only list projects we&apos;d
           recommend to our own family.
         </p>
+
+        {/* Browse by builder */}
+        {builders?.length > 0 && (
+          <div className="mb-10">
+            <div className="text-[11px] mb-3" style={{ fontFamily: "var(--sans)", color: "#7A6F60", letterSpacing: 2, textTransform: "uppercase" }}>
+              Browse by builder
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {builders.map((b) => (
+                <Link
+                  key={b.slug}
+                  href={`/projects/builders/${b.slug}/`}
+                  className="text-xs px-4 py-2 border border-[#DDD8CE] bg-white hover:border-[#C9A055] hover:text-[#C9A055] transition"
+                  style={{ fontFamily: "var(--sans)", letterSpacing: 0.5, color: "#5A4F40", fontWeight: 500 }}
+                >
+                  {b.name}
+                </Link>
+              ))}
+              <Link
+                href="/projects/builders/"
+                className="text-xs px-4 py-2 border border-[#C9A055] text-[#C9A055] hover:bg-[#C9A055] hover:text-white transition"
+                style={{ fontFamily: "var(--sans)", letterSpacing: 0.5, fontWeight: 600 }}
+              >
+                All builders →
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* Status filter */}
         <div className="flex flex-wrap gap-2 mb-10">

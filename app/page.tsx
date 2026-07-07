@@ -1,12 +1,21 @@
 import Link from "next/link";
 import { properties, blogs, testimonials } from "@/lib/data";
+import { projects } from "@/lib/projects";
 import { formatPrice } from "@/lib/utils";
 
 const serif = { fontFamily: "var(--serif)" };
 
+const statusColor: Record<string, string> = {
+  "Ready to Move": "#2E7D32",
+  Ongoing: "#C9A055",
+  Upcoming: "#1565C0",
+  Completed: "#6A4FB6",
+};
+
 export default function Home() {
   const featured = properties.filter((p: any) => p.featured).slice(0, 6);
   const latestBlogs = blogs.slice(-4).reverse();
+  const featuredProjects = projects.filter((p: any) => p.featured).slice(0, 3);
 
   return (
     <>
@@ -301,6 +310,65 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ───────── NEW PROJECTS (branded builders) ───────── */}
+      {featuredProjects.length > 0 && (
+        <section className="py-24 border-t border-[#DDD8CE]" style={{ background: "#EDE8DF" }}>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex items-end justify-between flex-wrap gap-4 mb-6">
+              <div>
+                <div className="eyebrow mb-3">New Projects · Branded Builders</div>
+                <h2 className="text-4xl md:text-5xl leading-tight" style={{ ...serif, color: "#1A1410", fontWeight: 400 }}>
+                  Invest in tomorrow&apos;s address
+                </h2>
+              </div>
+              <Link
+                href="/projects/"
+                className="text-[#C9A055] hover:text-[#b8913e] transition"
+                style={{ fontFamily: "var(--sans)", fontSize: 13, letterSpacing: 1 }}
+              >
+                View all new projects →
+              </Link>
+            </div>
+            <p className="max-w-3xl mb-12" style={{ fontFamily: "var(--sans)", color: "#7A6F60", lineHeight: 1.8 }}>
+              Under-construction and ready-to-move projects from Sobha, Prestige, Brigade &amp; Total
+              Environment — with honest investment math and full support for NRI buyers.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {featuredProjects.map((p: any) => (
+                <Link
+                  href={`/projects/${p.slug}/`}
+                  key={p.id}
+                  className="group bg-white border border-[#DDD8CE] hover:border-[#C9A055]/60 transition overflow-hidden flex flex-col"
+                >
+                  <div className="h-56 bg-[#EDE8DF] overflow-hidden relative">
+                    {p.heroImage && (
+                      <img src={p.heroImage} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+                    )}
+                    <span
+                      className="absolute top-3 left-3 text-white text-[10px] px-3 py-1"
+                      style={{ fontFamily: "var(--sans)", letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 600, background: statusColor[p.status] || "#C9A055" }}
+                    >
+                      {p.status}
+                    </span>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="text-[10px] mb-2" style={{ fontFamily: "var(--sans)", color: "#C9A055", letterSpacing: 2, textTransform: "uppercase" }}>
+                      {p.builder}
+                    </div>
+                    <h3 className="text-xl mb-2 line-clamp-2 group-hover:text-[#C9A055] transition" style={{ ...serif, color: "#1A1410", fontWeight: 600, lineHeight: 1.2 }}>
+                      {p.name}
+                    </h3>
+                    <p className="text-xs" style={{ fontFamily: "var(--sans)", color: "#7A6F60", letterSpacing: 1 }}>
+                      {p.locality}, {p.city} · {p.configurations}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ───────── FEATURED PROPERTIES ───────── */}
       <section className="py-24 border-t border-[#DDD8CE]" style={{ background: "#F5F0E8" }}>
