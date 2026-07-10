@@ -145,6 +145,15 @@ export default async function ProjectPage({ params }: any) {
             <p className="text-[15px]" style={{ fontFamily: "var(--sans)", color: "#5A4F40", lineHeight: 1.85 }}>
               {p.overview}
             </p>
+            {p.reviewSlug && (
+              <Link
+                href={`/blog/${p.reviewSlug}/`}
+                className="inline-flex items-center gap-2 mt-4 text-[#C9A055] hover:underline"
+                style={{ fontFamily: "var(--sans)", fontSize: 14, fontWeight: 600 }}
+              >
+                → Read our honest review of {p.name}
+              </Link>
+            )}
           </div>
 
           {/* Price & payment plans */}

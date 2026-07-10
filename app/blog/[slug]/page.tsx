@@ -12,7 +12,15 @@ function renderMarkdown(md: string): string {
   const escapeHtml = (s: string) =>
     s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const inline = (s: string) =>
-    escapeHtml(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    escapeHtml(s)
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      // [text](/internal/path) or (https://...) → anchor. Internal links
+      // stay same-tab; external open in a new tab.
+      .replace(/\[([^\]]+)\]\((\/[^)]+|https?:\/\/[^)]+)\)/g, (_m, text, href) => {
+        const external = /^https?:\/\//.test(href);
+        const attrs = external ? ' target="_blank" rel="noopener"' : "";
+        return `<a href="${href}"${attrs}>${text}</a>`;
+      });
 
   const blocks = md.split(/\n\n+/);
   const out: string[] = [];
