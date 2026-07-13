@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + "/blog/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: base + "/nri/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/property-management/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: base + "/rent-out-your-property/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/about/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/contact/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/privacy-policy/", lastModified: LAST_MODIFIED, changeFrequency: "yearly" as const, priority: 0.3 },

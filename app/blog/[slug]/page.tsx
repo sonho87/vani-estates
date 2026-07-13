@@ -30,6 +30,24 @@ function renderMarkdown(md: string): string {
     if (!block) continue;
     const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
 
+    // Markdown table: every line starts with "|". Row 2 is the --- separator.
+    if (lines.length >= 2 && lines.every((l) => l.startsWith("|"))) {
+      const cells = (l: string) =>
+        l.replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+      const header = cells(lines[0]);
+      const bodyRows = lines.slice(2); // skip the |---|---| separator
+      const thead =
+        "<thead><tr>" + header.map((c) => `<th>${inline(c)}</th>`).join("") + "</tr></thead>";
+      const tbody =
+        "<tbody>" +
+        bodyRows
+          .map((r) => "<tr>" + cells(r).map((c) => `<td>${inline(c)}</td>`).join("") + "</tr>")
+          .join("") +
+        "</tbody>";
+      out.push(`<table>${thead}${tbody}</table>`);
+      continue;
+    }
+
     // Whole block is a single bold line → section heading
     if (lines.length === 1 && /^\*\*(.+)\*\*$/.test(lines[0])) {
       out.push(`<h2>${inline(lines[0].replace(/^\*\*|\*\*$/g, ""))}</h2>`);
