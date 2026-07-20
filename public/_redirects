@@ -1,3 +1,7 @@
 # Redirects for /?property=N and /?article=N are handled by
 # functions/index.js (Cloudflare Pages Function), because Pages _redirects
 # syntax does not reliably match query-string sources.
+
+# Legacy path redirects (path-based _redirects DO work on Cloudflare Pages)
+/agents        /about/  301
+/agents/       /about/  301
