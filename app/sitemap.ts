@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + "/projects/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: base + "/projects/builders/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/blog/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: base + "/guides/", lastModified: LAST_MODIFIED, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: base + "/stamp-duty-calculator/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/nri/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/property-management/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: base + "/rent-out-your-property/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
