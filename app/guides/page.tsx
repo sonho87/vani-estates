@@ -21,8 +21,11 @@ export const metadata: Metadata = {
 const services = [
   { label: "New Projects (branded builders)", href: "/projects/" },
   { label: "NRI Property Services", href: "/nri/" },
+  { label: "Home Loans (150+ banks)", href: "/home-loans/" },
+  { label: "Home Interiors", href: "/interiors/" },
   { label: "Property Management", href: "/property-management/" },
   { label: "Rent Out Your Property", href: "/rent-out-your-property/" },
+  { label: "Stamp Duty Calculator", href: "/stamp-duty-calculator/" },
   { label: "Browse Properties", href: "/properties/" },
 ];
 
