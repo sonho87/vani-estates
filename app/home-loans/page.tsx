@@ -4,7 +4,7 @@ import Link from "next/link";
 const serif = { fontFamily: "var(--serif)" };
 
 export const metadata: Metadata = {
-  title: "Home Loans in Bangalore — One Application, 150+ Banks | Vani Estates",
+  title: "Home Loans in Bangalore — One Application, 150+ Banks",
   description:
     "Get your home loan sorted with Vani Estates. Through our lending partner's network of 150+ nationalised and private banks, we help you compare rates, check eligibility and get approved — including NRI home loans. We handle the paperwork.",
   alternates: { canonical: "/home-loans/" },
