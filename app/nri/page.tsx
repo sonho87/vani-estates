@@ -4,9 +4,9 @@ import Link from "next/link";
 const serif = { fontFamily: "var(--serif)" };
 
 export const metadata: Metadata = {
-  title: "NRI Property Services in Bangalore — Buy, Manage & Sell From Abroad",
+  title: "NRI Services in Bangalore — Property Buying, Management & Selling for NRIs",
   description:
-    "Complete NRI real estate services in Bangalore: buy branded apartments remotely, Power of Attorney guidance, NRE/NRO payments, TDS, rental management and resale. RERA registered, 35+ years in South Bangalore. WhatsApp video tours for US, UK, Gulf & Singapore clients.",
+    "The complete NRI services partner in Bangalore: buy property remotely from the USA, UK, Dubai/UAE or Singapore, Power of Attorney guidance, NRE/NRO payments, TDS, rental management and resale. RERA registered, 35+ years. Video calls on your time zone.",
   alternates: { canonical: "/nri/" },
   openGraph: {
     title: "NRI Property Services in Bangalore — Vani Estates",
@@ -118,6 +118,35 @@ export default function NRIPage() {
         <p className="mt-6 text-[11px]" style={{ fontFamily: "var(--sans)", color: "#7A6F60", letterSpacing: 1 }}>
           RERA: PRM/KA/RERA/1251/310/AG/250523/005790 · Since 1990 · 4.9★ on Google
         </p>
+      </section>
+
+      {/* Country cluster strip */}
+      <section className="border-b border-[#DDD8CE] py-8" style={{ background: "#F5F0E8" }}>
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div
+            className="text-[11px] mb-4"
+            style={{ fontFamily: "var(--sans)", color: "#7A6F60", letterSpacing: 2, textTransform: "uppercase" }}
+          >
+            Where are you buying from?
+          </div>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {[
+              ["🇺🇸", "From the USA", "/nri/from-usa/"],
+              ["🇬🇧", "From the UK", "/nri/from-uk/"],
+              ["🇦🇪", "From Dubai / UAE", "/nri/from-uae-dubai/"],
+              ["🇸🇬", "From Singapore", "/nri/from-singapore/"],
+            ].map(([flag, label, href]) => (
+              <Link
+                key={href as string}
+                href={href as string}
+                className="text-sm px-5 py-3 border border-[#DDD8CE] bg-white hover:border-[#C9A055] hover:text-[#C9A055] transition"
+                style={{ fontFamily: "var(--sans)", color: "#5A4F40", fontWeight: 500 }}
+              >
+                {flag} {label}
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-6 py-20">

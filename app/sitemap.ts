@@ -1,5 +1,6 @@
 import { properties, blogs } from "@/lib/data";
 import { publishedProjects, builders } from "@/lib/projects";
+import { nriCountries } from "@/lib/nri-countries";
 import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
@@ -61,11 +62,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const nriCountryPages = nriCountries.map((c: any) => ({
+    url: `${base}/nri/from-${c.slug}/`,
+    lastModified: LAST_MODIFIED,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticPages,
     ...propertyPages,
     ...projectPages,
     ...builderPages,
+    ...nriCountryPages,
     ...blogPages,
   ];
 }
