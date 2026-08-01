@@ -6,7 +6,7 @@ const serif = { fontFamily: "var(--serif)" };
 export const metadata: Metadata = {
   title: "Property Management Services in Bangalore — NRI & Landlord Support",
   description:
-    "End-to-end property management in South Bangalore for landlords and NRIs. Tenant sourcing, rent collection, maintenance, legal documentation and inspections. Understand landlord vs. property manager responsibilities. RERA registered — Vani Estates, Jayanagar.",
+    "End-to-end property management in South Bangalore for landlords and NRIs — tenants, rent collection, maintenance and inspections. RERA registered.",
   alternates: { canonical: "/property-management/" },
   openGraph: {
     title: "Property Management Services in Bangalore — Vani Estates",

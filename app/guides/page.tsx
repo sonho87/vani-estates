@@ -7,7 +7,7 @@ const serif = { fontFamily: "var(--serif)" };
 export const metadata: Metadata = {
   title: "Property Guides & Resources — Buying, Selling, Renting & NRI in Bangalore",
   description:
-    "Free, honest guides for buying, selling, renting, investing and NRI property in Bangalore — legal, home loans, Vastu, agreements, due diligence and more. From Vani Estates, RERA registered, 35+ years in South Bangalore.",
+    "Free guides to buying, selling, renting and NRI property in Bangalore — legal, home loans, Vastu and more, from a 35-year RERA-registered agent.",
   alternates: { canonical: "/guides/" },
   openGraph: {
     title: "Property Guides & Resources — Vani Estates",

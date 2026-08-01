@@ -7,7 +7,7 @@ import ProjectsStatic from "./ProjectsStatic";
 export const metadata: Metadata = {
   title: "New Projects in Bangalore by Sobha, Prestige, Brigade & Total Environment",
   description:
-    "Hand-picked new projects from India's most trusted builders — Sobha, Prestige, Brigade, Total Environment. Ready to move, ongoing and upcoming RERA-registered projects in Bangalore for investors and NRI buyers, with honest investment analysis.",
+    "Curated new projects by Sobha, Prestige, Brigade & Total Environment in Bangalore — honest investment analysis and full NRI support. RERA registered.",
   alternates: { canonical: "/projects/" },
   openGraph: {
     title: "New Projects in Bangalore by Top Branded Builders — Vani Estates",

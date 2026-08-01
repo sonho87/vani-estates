@@ -6,7 +6,7 @@ const serif = { fontFamily: "var(--serif)" };
 export const metadata: Metadata = {
   title: "About Vani Estates — RERA Registered Property Consultants in Bangalore",
   description:
-    "Founded in 1990 by Amarnath R, Vani Estates is Jayanagar's most trusted property consultancy. 35+ years of South Bangalore real estate expertise across Jayanagar, JP Nagar, Banashankari & Basavanagudi.",
+    "Vani Estates — RERA-registered property consultants in Jayanagar since 1990. 35+ years, 500+ transactions, 4.9-star rated. Meet the team.",
   alternates: { canonical: "/about/" },
   openGraph: {
     title: "About Vani Estates — RERA Registered Property Consultants in Bangalore",

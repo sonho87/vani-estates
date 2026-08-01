@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Vani Estates",
   },
   description:
-    "Jayanagar's most trusted property consultants since 1990. RERA registered. Buying, selling and renting premium apartments, villas, plots and commercial spaces across Jayanagar, JP Nagar, Banashankari and Basavanagudi.",
+    "RERA-registered property consultants in South Bangalore since 1990. Buy, sell, rent — resale homes, branded new projects, NRI services & home loans.",
   keywords: [
     "real estate bangalore",
     "property jayanagar",
@@ -25,6 +25,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Vani Estates",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Vani Estates — Property Consultants, Bangalore",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

@@ -6,7 +6,7 @@ const serif = { fontFamily: "var(--serif)" };
 export const metadata: Metadata = {
   title: "NRI Services in Bangalore — Property Buying, Management & Selling for NRIs",
   description:
-    "The complete NRI services partner in Bangalore: buy property remotely from the USA, UK, Dubai/UAE or Singapore, Power of Attorney guidance, NRE/NRO payments, TDS, rental management and resale. RERA registered, 35+ years. Video calls on your time zone.",
+    "Buy, manage and sell Bangalore property from abroad — video tours, Power of Attorney, NRE/NRO payments, TDS and rentals. RERA registered, 35+ years.",
   alternates: { canonical: "/nri/" },
   openGraph: {
     title: "NRI Property Services in Bangalore — Vani Estates",

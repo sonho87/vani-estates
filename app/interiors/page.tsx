@@ -6,7 +6,7 @@ const serif = { fontFamily: "var(--serif)" };
 export const metadata: Metadata = {
   title: "Home Interiors in Bangalore — Design Your New Home with Vani Estates × Bonito Designs",
   description:
-    "Bought a flat through Vani Estates? Design it too. In partnership with Bonito Designs, we offer personalised, celebrity-inspired home interiors with exclusive offers — one team from buying to moving in. Jayanagar, JP Nagar, Banashankari & beyond.",
+    "Home interiors in Bangalore with our partner Bonito Designs — personalised, celebrity-inspired designs with exclusive offers for Vani Estates clients.",
   alternates: { canonical: "/interiors/" },
   openGraph: {
     title: "Home Interiors in Bangalore — Vani Estates × Bonito Designs",

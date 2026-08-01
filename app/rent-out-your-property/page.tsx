@@ -6,7 +6,7 @@ const serif = { fontFamily: "var(--serif)" };
 export const metadata: Metadata = {
   title: "Rent Out Your Property in Bangalore — Fully Managed, Hassle-Free",
   description:
-    "Rent out your flat in Jayanagar, JP Nagar, Banashankari or Basavanagudi without the hassle. Vani Estates finds verified tenants and manages rent collection, agreements, and maintenance — ideal for busy owners and NRIs. RERA registered, 35+ years.",
+    "Rent out your Bangalore flat without the hassle — verified tenants, agreements, rent collection and maintenance, fully managed. Ideal for busy owners and NRIs.",
   alternates: { canonical: "/rent-out-your-property/" },
   openGraph: {
     title: "Rent Out Your Property in Bangalore — Fully Managed by Vani Estates",
