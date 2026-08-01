@@ -1,6 +1,7 @@
 import { properties, blogs } from "@/lib/data";
 import { publishedProjects, builders } from "@/lib/projects";
 import { nriCountries } from "@/lib/nri-countries";
+import { localities } from "@/lib/localities";
 import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
@@ -69,12 +70,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const localityPages = localities.map((l: any) => ({
+    url: `${base}/real-estate-agents-in-${l.slug}/`,
+    lastModified: LAST_MODIFIED,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   return [
     ...staticPages,
     ...propertyPages,
     ...projectPages,
     ...builderPages,
     ...nriCountryPages,
+    ...localityPages,
     ...blogPages,
   ];
 }

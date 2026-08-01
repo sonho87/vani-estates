@@ -44,14 +44,6 @@ function FloatingWhatsApp() {
 }
 
 function Footer() {
-  const localityLinks = [
-    "Jayanagar",
-    "JP Nagar",
-    "Banashankari",
-    "Basavanagudi",
-    "Bilekahalli",
-  ];
-
   return (
     <footer className="bg-[#EDE8DF] border-t border-[#DDD8CE] py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -83,11 +75,11 @@ function Footer() {
               Localities
             </h4>
             <div className="flex flex-col gap-2 text-sm text-[#7A6F60]">
-              {localityLinks.map((l) => (
-                <Link key={l} href="/properties/" className="hover:text-[#C9A055] transition">
-                  {l}
-                </Link>
-              ))}
+              <Link href="/real-estate-agents-in-jayanagar/" className="hover:text-[#C9A055] transition">Agents in Jayanagar</Link>
+              <Link href="/real-estate-agents-in-jp-nagar/" className="hover:text-[#C9A055] transition">Agents in JP Nagar</Link>
+              <Link href="/real-estate-agents-in-banashankari/" className="hover:text-[#C9A055] transition">Agents in Banashankari</Link>
+              <Link href="/real-estate-agents-in-basavanagudi/" className="hover:text-[#C9A055] transition">Agents in Basavanagudi</Link>
+              <Link href="/properties/" className="hover:text-[#C9A055] transition">All Properties</Link>
             </div>
           </div>
 
