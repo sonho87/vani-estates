@@ -49,30 +49,28 @@ export default function Home() {
             Jayanagar&apos;s Most Trusted — Since 1990
           </p>
 
-          <h1
-            className="leading-none mb-3 fade-in"
-            style={{
-              ...serif,
-              color: "#1A1410",
-              fontWeight: 300,
-              fontSize: "clamp(52px, 8vw, 96px)",
-              letterSpacing: -1,
-            }}
-          >
-            Luxury Lives Here
+          <h1 className="mb-8 fade-in" style={{ ...serif, fontWeight: 300 }}>
+            <span
+              className="block leading-none mb-3"
+              style={{
+                color: "#1A1410",
+                fontSize: "clamp(52px, 8vw, 96px)",
+                letterSpacing: -1,
+              }}
+            >
+              Luxury Lives Here
+            </span>
+            <span
+              className="block italic"
+              style={{
+                color: "#C9A055",
+                fontWeight: 400,
+                fontSize: "clamp(28px, 4vw, 48px)",
+              }}
+            >
+              in South Bangalore
+            </span>
           </h1>
-
-          <div
-            className="italic mb-8 fade-in"
-            style={{
-              ...serif,
-              color: "#C9A055",
-              fontWeight: 400,
-              fontSize: "clamp(28px, 4vw, 48px)",
-            }}
-          >
-            in South Bangalore
-          </div>
 
           <p
             className="text-base md:text-lg max-w-2xl mx-auto mb-12 fade-in"
