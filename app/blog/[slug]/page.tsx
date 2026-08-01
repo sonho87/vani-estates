@@ -245,6 +245,35 @@ export default async function BlogPost({ params }: any) {
         </div>
       )}
 
+      {/* E-E-A-T author box — expertise signal for readers, AI engines & Google */}
+      <div className="max-w-4xl mx-auto px-6 pb-16">
+        <div className="bg-white border border-[#DDD8CE] p-7 flex flex-col sm:flex-row gap-6 items-start">
+          <img
+            src="/amarnath.jpg"
+            alt="Amarnath R — Founder, Vani Estates"
+            className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+            style={{ border: "2px solid rgba(201,160,85,0.45)" }}
+          />
+          <div>
+            <div
+              className="text-[10px] mb-1"
+              style={{ fontFamily: "var(--sans)", color: "#C9A055", letterSpacing: 2, textTransform: "uppercase" }}
+            >
+              About the Author
+            </div>
+            <div className="text-lg mb-2" style={{ ...serif, color: "#1A1410", fontWeight: 600 }}>
+              Vani Estates — led by Amarnath R
+            </div>
+            <p className="text-[13px]" style={{ fontFamily: "var(--sans)", color: "#5A4F40", lineHeight: 1.7 }}>
+              Written by the team at Vani Estates, a RERA-registered real estate consultancy
+              (PRM/KA/RERA/1251/310/AG/250523/005790) founded in 1990 by Amarnath R, with 35+
+              years of on-the-ground experience and 500+ transactions across Jayanagar, JP Nagar,
+              Banashankari and Basavanagudi. Rated 4.9★ on Google.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -253,8 +282,25 @@ export default async function BlogPost({ params }: any) {
             "@type": "BlogPosting",
             headline: blog.title,
             datePublished: blog.date,
-            author: { "@type": "Organization", name: "Vani Estates" },
+            author: {
+              "@type": "Person",
+              name: "Amarnath R",
+              jobTitle: "Founder & CEO, Vani Estates",
+              description:
+                "RERA-registered real estate consultant with 35+ years of experience in South Bangalore.",
+              worksFor: { "@type": "Organization", name: "Vani Estates" },
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Vani Estates",
+              url: "https://www.vaniestates.com",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.vaniestates.com/logo.jpg",
+              },
+            },
             description: blog.excerpt,
+            mainEntityOfPage: `https://www.vaniestates.com/blog/${blog.slug}/`,
             url: `https://www.vaniestates.com/blog/${blog.slug}/`,
           }),
         }}
