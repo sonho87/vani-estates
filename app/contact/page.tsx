@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import QualifyNote from "../_components/QualifyNote";
 
 const serif = { fontFamily: "var(--serif)" };
 
@@ -42,6 +43,10 @@ export default function ContactPage() {
             Our consultants are available 7 days a week to help you find, buy, sell, or
             rent the right property in South Bangalore.
           </p>
+
+          <div className="mb-12">
+            <QualifyNote />
+          </div>
 
           <div className="space-y-6">
             {[

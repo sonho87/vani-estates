@@ -3,6 +3,7 @@ import { properties, blogs } from "@/lib/data";
 import { formatPrice } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
+import QualifyNote from "./QualifyNote";
 
 const serif = { fontFamily: "var(--serif)" };
 
@@ -75,6 +76,10 @@ export default function LocalityAgentsPage({ slug }: { slug: string }) {
       </section>
 
       <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto mb-14">
+          <QualifyNote />
+        </div>
+
         {/* Why us here */}
         <div className="mb-20 grid lg:grid-cols-2 gap-12 items-start">
           <div>

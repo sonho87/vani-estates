@@ -119,7 +119,7 @@ export default function Home() {
               {[
                 { ph: "All Areas", opts: ["All Areas", "Jayanagar", "JP Nagar", "Banashankari", "Basavanagudi"] },
                 { ph: "All Types", opts: ["All Types", "Apartment", "Villa", "Plot", "Commercial"] },
-                { ph: "Any Budget", opts: ["Any Budget", "Under ₹50L", "₹50L–₹1Cr", "₹1Cr–₹2Cr", "₹2Cr+"] },
+                { ph: "Any Budget", opts: ["Any Budget", "₹75L–₹1Cr", "₹1Cr–₹2Cr", "₹2Cr–₹5Cr", "₹5Cr+"] },
               ].map((s) => (
                 <select
                   key={s.ph}

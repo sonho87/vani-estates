@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import QualifyNote from "../_components/QualifyNote";
 
 const serif = { fontFamily: "var(--serif)" };
 
@@ -75,6 +76,10 @@ export default function RentOutPage() {
       </section>
 
       <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto mb-16">
+          <QualifyNote />
+        </div>
+
         {/* The honest comparison */}
         <div className="mb-24">
           <div className="text-center mb-14">
