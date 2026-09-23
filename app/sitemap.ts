@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + "/rent-out-your-property/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/home-loans/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/interiors/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: base + "/commercial/pride-hulkul-lalbagh-road/", lastModified: "2026-09-23", changeFrequency: "weekly" as const, priority: 0.85 },
     { url: base + "/about/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/contact/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/privacy-policy/", lastModified: LAST_MODIFIED, changeFrequency: "yearly" as const, priority: 0.3 },
