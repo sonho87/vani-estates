@@ -8,7 +8,11 @@ export function trackLead(kind: string) {
   const w = window as any;
   w.dataLayer = w.dataLayer || [];
   w.dataLayer.push({ event: "commercial_lead", lead_type: kind, property: "pride-hulkul" });
-  if (typeof w.gtag === "function") w.gtag("event", "generate_lead", { lead_type: kind });
+  if (typeof w.gtag === "function") {
+    w.gtag("event", "generate_lead", { lead_type: kind });
+    // Google Ads conversion: "Office enquiry" (Submit lead form)
+    w.gtag("event", "conversion", { send_to: "AW-18469434146/NfIOCPyArYQdEKLm9OZE", value: 1.0, currency: "INR" });
+  }
 }
 
 const field =
