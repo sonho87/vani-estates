@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Pushes a lead event for Google Ads / GA4 conversion tracking.
 // Safe no-op until the Google tag is installed.
@@ -85,12 +85,18 @@ export default function EnquiryForm() {
   );
 }
 
-export function TrackedLink({ href, kind, className, style, children }: {
-  href: string; kind: string; className?: string; style?: React.CSSProperties; children: React.ReactNode;
-}) {
-  return (
-    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} onClick={() => trackLead(kind)} className={className} style={style}>
-      {children}
-    </a>
-  );
+// Counts every WhatsApp / call tap on the page (including the floating
+// WhatsApp button) as a lead, without wiring each link individually.
+export function LeadClickTracker() {
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      const a = (e.target as HTMLElement).closest("a");
+      const href = a?.getAttribute("href") || "";
+      if (href.includes("wa.me")) trackLead("whatsapp");
+      else if (href.startsWith("tel:")) trackLead("call");
+    }
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+  return null;
 }

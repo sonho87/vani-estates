@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import EnquiryForm, { TrackedLink } from "./EnquiryForm";
+import EnquiryForm, { LeadClickTracker } from "./EnquiryForm";
 
 const serif = { fontFamily: "var(--serif)" };
 const sans = { fontFamily: "var(--sans)" };
@@ -70,6 +70,7 @@ const waText = encodeURIComponent("Hi Vani Estates, I'm interested in the office
 export default function PrideHulkulPage() {
   return (
     <div style={{ background: "#F5F0E8" }}>
+      <LeadClickTracker />
       {/* Hero */}
       <section className="border-b border-[#DDD8CE]" style={{ background: "#EDE8DF" }}>
         <div className="max-w-7xl mx-auto px-6 py-14 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
@@ -91,12 +92,12 @@ export default function PrideHulkulPage() {
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <TrackedLink href={`https://wa.me/919845012548?text=${waText}`} kind="whatsapp" className="text-center bg-[#25D366] text-white px-9 py-4 hover:bg-[#1da851] transition" style={btn}>
+              <a href={`https://wa.me/919845012548?text=${waText}`} target="_blank" className="text-center bg-[#25D366] text-white px-9 py-4 hover:bg-[#1da851] transition" style={btn}>
                 WhatsApp Us
-              </TrackedLink>
-              <TrackedLink href="tel:+919845012548" kind="call" className="text-center border border-[#C9A055] text-[#C9A055] px-9 py-4 hover:bg-[#C9A055] hover:text-white transition" style={btn}>
+              </a>
+              <a href="tel:+919845012548" className="text-center border border-[#C9A055] text-[#C9A055] px-9 py-4 hover:bg-[#C9A055] hover:text-white transition" style={btn}>
                 +91 98450 12548
-              </TrackedLink>
+              </a>
             </div>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}

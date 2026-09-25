@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import Script from "next/script";
 import SiteHeader from "./SiteHeader";
 import EMICalculator from "./EMICalculator";
 import ProtectContent from "./ProtectContent";
@@ -162,6 +163,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <EMICalculator />
         <FloatingWhatsApp />
         <ProtectContent />
+        {/* Google tag (Google Ads) */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18469434146" strategy="afterInteractive" />
+        <Script id="google-tag" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18469434146');`}
+        </Script>
       </body>
     </html>
   );
