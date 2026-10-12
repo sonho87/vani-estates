@@ -1,4 +1,4 @@
-import { builders, projectsByBuilder } from "@/lib/projects";
+import { listedBuilders, projectsByBuilder } from "@/lib/projects";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -27,7 +27,7 @@ export default function BuildersIndexPage() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {builders.map((b: any) => {
+          {listedBuilders().map((b: any) => {
             const count = projectsByBuilder(b.slug).length;
             return (
               <Link

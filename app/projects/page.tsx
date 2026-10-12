@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { projects, builders } from "@/lib/projects";
+import { listedProjects, listedBuilders } from "@/lib/projects";
 import type { Metadata } from "next";
 import ProjectsView from "./ProjectsView";
 import ProjectsStatic from "./ProjectsStatic";
@@ -20,8 +20,8 @@ export default function ProjectsPage() {
   // Static server-rendered grid is the Suspense fallback → it lands in the
   // static HTML for SEO. The interactive client filter hydrates over it.
   return (
-    <Suspense fallback={<ProjectsStatic projects={projects} builders={builders} />}>
-      <ProjectsView projects={projects} builders={builders} />
+    <Suspense fallback={<ProjectsStatic projects={listedProjects()} builders={listedBuilders()} />}>
+      <ProjectsView projects={listedProjects()} builders={listedBuilders()} />
     </Suspense>
   );
 }

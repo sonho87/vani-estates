@@ -21,11 +21,12 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const b = getBuilder(slug) as any;
   if (!b) return {};
   return {
-    title: `${b.name} Projects in Bangalore — Honest Agent's View`,
-    description: `${b.name} new projects in Bangalore, reviewed by Vani Estates — a RERA-registered channel partner with 35+ years in South Bangalore. ${b.overview.substring(0, 100)}...`,
+    title: `${b.name} Projects in ${b.region || "Bangalore"} — Honest Agent's View`,
+    description: `${b.name} new projects in ${b.region || "Bangalore"}, reviewed by Vani Estates — a RERA-registered channel partner with 35+ years in South Bangalore. ${b.overview.substring(0, 100)}...`,
     alternates: { canonical: `/projects/builders/${b.slug}/` },
+    robots: b.draft ? { index: false, follow: true } : undefined,
     openGraph: {
-      title: `${b.name} Projects in Bangalore — Vani Estates`,
+      title: `${b.name} Projects in ${b.region || "Bangalore"} — Vani Estates`,
       description: b.tagline,
     },
   };

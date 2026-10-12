@@ -21,14 +21,14 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const p = projects.find((x: any) => x.slug === slug) as any;
   if (!p) return {};
   return {
-    title: `${p.name} by ${p.builder} — ${p.locality}, Bangalore`,
-    description: `${p.name} by ${p.builder} in ${p.locality}, Bangalore. ${p.configurations} ${p.type.toLowerCase()}s · ${p.status}. ${p.overview.substring(0, 110)}...`,
+    title: p.seoTitle || `${p.name} by ${p.builder} — ${p.locality}, ${p.city}`,
+    description: p.seoDescription || `${p.name} by ${p.builder} in ${p.locality}, ${p.city}. ${p.configurations} ${p.type.toLowerCase()}s · ${p.status}. ${p.overview.substring(0, 110)}...`,
     alternates: { canonical: `/projects/${p.slug}/` },
     // Placeholder projects (no real data / RERA yet) must not be indexed.
-    robots: p.published ? undefined : { index: false, follow: true },
+    robots: p.published && !p.draft ? undefined : { index: false, follow: true },
     openGraph: {
       title: `${p.name} by ${p.builder}`,
-      description: `${p.configurations} · ${p.locality}, Bangalore · ${p.status}`,
+      description: `${p.configurations} · ${p.locality}, ${p.city} · ${p.status}`,
       images: p.heroImage ? [{ url: p.heroImage }] : [],
     },
   };
@@ -122,7 +122,7 @@ export default async function ProjectPage({ params }: any) {
             {p.name}
           </h1>
           <p className="mb-8" style={{ fontFamily: "var(--sans)", color: "#7A6F60" }}>
-            {p.locality}, {p.city} · {p.configurations} {p.type}s
+            {p.locality}, {p.city} · {p.type === "Plot" ? p.configurations : `${p.configurations} ${p.type}s`}
           </p>
 
           {/* Specs grid */}
@@ -395,7 +395,7 @@ export default async function ProjectPage({ params }: any) {
             description: p.overview,
             url: `https://www.vaniestates.com/projects/${p.slug}/`,
             image: p.heroImage,
-            address: { "@type": "PostalAddress", addressLocality: p.locality, addressRegion: "Karnataka", addressCountry: "IN" },
+            address: { "@type": "PostalAddress", addressLocality: p.locality, addressRegion: p.state || "Karnataka", addressCountry: "IN" },
           }),
         }}
       />

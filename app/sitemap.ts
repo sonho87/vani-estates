@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const builderPages = builders.map((b: any) => ({
+  const builderPages = builders.filter((b: any) => !b.draft).map((b: any) => ({
     url: `${base}/projects/builders/${b.slug}/`,
     lastModified: LAST_MODIFIED,
     changeFrequency: "monthly" as const,

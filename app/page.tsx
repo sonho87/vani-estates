@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { properties, blogs, testimonials } from "@/lib/data";
-import { projects } from "@/lib/projects";
+import { listedProjects } from "@/lib/projects";
 import { formatPrice } from "@/lib/utils";
 
 const serif = { fontFamily: "var(--serif)" };
@@ -15,7 +15,7 @@ const statusColor: Record<string, string> = {
 export default function Home() {
   const featured = properties.filter((p: any) => p.featured).slice(0, 6);
   const latestBlogs = blogs.slice(-4).reverse();
-  const featuredProjects = projects.filter((p: any) => p.featured).slice(0, 3);
+  const featuredProjects = listedProjects().filter((p: any) => p.featured).slice(0, 3);
 
   return (
     <>
