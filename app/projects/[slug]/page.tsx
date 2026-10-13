@@ -164,7 +164,7 @@ export default async function ProjectPage({ params }: any) {
                 <div className="text-[10px] mb-1" style={{ fontFamily: "var(--sans)", color: "#7A6F60", letterSpacing: 2, textTransform: "uppercase" }}>Price range</div>
                 <div style={{ ...serif, fontSize: 26, color: "#C9A055", fontWeight: 600 }}>{p.priceRange}</div>
                 {p.priceValidAsOf && (
-                  <div className="text-[11px] mt-1" style={{ fontFamily: "var(--sans)", color: "#7A6F60" }}>Indicative · as of {p.priceValidAsOf}</div>
+                  <div className="text-[11px] mt-1" style={{ fontFamily: "var(--sans)", color: "#7A6F60" }}>{p.priceValidAsOf}</div>
                 )}
               </div>
               {p.paymentPlans && p.paymentPlans.length > 0 && (
