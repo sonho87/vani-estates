@@ -9,7 +9,7 @@ export const dynamic = "force-static";
 // Stable lastmod — bump this only when content meaningfully changes.
 // Using a fixed date (rather than new Date()) avoids signalling a fresh
 // "last modified" to Google on every deploy, which can erode crawl trust.
-const LAST_MODIFIED = "2026-07-10";
+const LAST_MODIFIED = "2026-11-06";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.vaniestates.com";

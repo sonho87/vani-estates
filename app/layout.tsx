@@ -8,11 +8,11 @@ import ProtectContent from "./ProtectContent";
 
 export const metadata: Metadata = {
   title: {
-    default: "Vani Estates — Premium Property Consultants, Bangalore",
+    default: "Vani Estates | Real Estate Agents in Jayanagar, South Bangalore",
     template: "%s | Vani Estates",
   },
   description:
-    "RERA-registered property consultants in South Bangalore since 1990. Buy, sell, rent — resale homes, branded new projects, NRI services & home loans.",
+    "Jayanagar real estate agents since 1990. Flats and houses for sale and rent in Jayanagar, JP Nagar, Basavanagudi and Banashankari. Call 98450 12548.",
   keywords: [
     "real estate bangalore",
     "property jayanagar",

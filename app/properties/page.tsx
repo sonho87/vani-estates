@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import PropertiesView from "./PropertiesView";
 
 export const metadata: Metadata = {
-  title: "Properties for Sale & Rent in South Bangalore",
+  title: "Flats for Sale & Rent in Jayanagar, JP Nagar | South Bangalore",
   description:
-    "Browse verified property listings in Jayanagar, JP Nagar, Banashankari & Basavanagudi. Filter by Buy, Rent or New Projects. Card or List view. RERA registered consultants.",
+    "Verified 2 and 3 BHK flats and houses for sale and rent in Jayanagar, JP Nagar, Basavanagudi and Banashankari. Photos, prices, free site visits.",
   alternates: { canonical: "/properties/" },
 };
 
