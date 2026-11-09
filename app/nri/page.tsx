@@ -4,7 +4,7 @@ import Link from "next/link";
 const serif = { fontFamily: "var(--serif)" };
 
 export const metadata: Metadata = {
-  title: "NRI Services in Bangalore — Property Buying, Management & Selling for NRIs",
+  title: "NRI Services in Bangalore | Buy, Sell & Manage Property",
   description:
     "Buy, manage and sell Bangalore property from abroad — video tours, Power of Attorney, NRE/NRO payments, TDS and rentals. RERA registered, 35+ years.",
   alternates: { canonical: "/nri/" },

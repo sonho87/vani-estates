@@ -12,9 +12,9 @@ type Property = any;
 const STATUS_TABS = ["All", "Sale", "Rent", "New"] as const;
 type Status = (typeof STATUS_TABS)[number];
 
-export default function PropertiesView({ properties }: { properties: Property[] }) {
+export default function PropertiesView({ properties, fallback = null }: { properties: Property[]; fallback?: React.ReactNode }) {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={fallback}>
       <PropertiesViewInner properties={properties} />
     </Suspense>
   );

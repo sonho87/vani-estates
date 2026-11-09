@@ -1,6 +1,7 @@
 import { properties } from "@/lib/data";
 import type { Metadata } from "next";
 import PropertiesView from "./PropertiesView";
+import PropertiesStatic from "./PropertiesStatic";
 
 export const metadata: Metadata = {
   title: "Flats for Sale & Rent in Jayanagar, JP Nagar | South Bangalore",
@@ -10,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function PropertiesPage() {
-  return <PropertiesView properties={properties} />;
+  return <PropertiesView properties={properties} fallback={<PropertiesStatic properties={properties} />} />;
 }
