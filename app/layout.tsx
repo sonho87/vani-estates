@@ -107,6 +107,7 @@ function Footer() {
               <Link href="/projects/" className="hover:text-[#C9A055] transition">New Projects</Link>
               <Link href="/nri/" className="hover:text-[#C9A055] transition">NRI Services</Link>
               <Link href="/property-management/" className="hover:text-[#C9A055] transition">Property Management</Link>
+              <Link href="/sell-your-property/" className="hover:text-[#C9A055] transition">Sell or Manage Your Property</Link>
               <Link href="/rent-out-your-property/" className="hover:text-[#C9A055] transition">Rent Out Your Property</Link>
               <Link href="/home-loans/" className="hover:text-[#C9A055] transition">Home Loans</Link>
               <Link href="/interiors/" className="hover:text-[#C9A055] transition">Interiors</Link>
