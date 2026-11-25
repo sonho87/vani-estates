@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title: s.title,
     description: s.metaDesc,
     alternates: { canonical: `/interiors/${s.slug}/` },
-    openGraph: { title: s.title, description: s.metaDesc },
+    openGraph: { title: s.title, description: s.metaDesc, images: s.image ? [{ url: s.image }] : [] },
   };
 }
 
@@ -58,6 +58,14 @@ export default async function InteriorServicePage({ params }: any) {
       </section>
 
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-16">
+        {s.image && (
+          <figure>
+            <img src={s.image} alt={s.imageAlt} loading="lazy" className="w-full max-h-[560px] object-cover border border-[#DDD8CE]" />
+            <figcaption className="mt-2 text-[12px]" style={{ ...sans, color: "#7A6F60" }}>
+              {s.imageAlt}. Completed work by our interiors partner.
+            </figcaption>
+          </figure>
+        )}
         <section>
           <h2 className="text-3xl md:text-4xl mb-6" style={{ ...serif, color: "#1A1410", fontWeight: 400 }}>{s.costTitle}</h2>
           <div className="bg-white border border-[#DDD8CE] divide-y divide-[#DDD8CE]">
@@ -126,7 +134,7 @@ export default async function InteriorServicePage({ params }: any) {
         </section>
 
         <p className="text-[11px]" style={{ ...sans, color: "#7A6F60" }}>
-          Interior design and execution are delivered by our partner Bonito Designs. Designs, final pricing and warranties are as per their terms.
+          Interior design and execution are delivered by our interiors partner. Designs, final pricing and warranties are as per their terms.
           Vani Estates (RERA PRM/KA/RERA/1251/310/AG/250523/005790) arranges consultations and coordinates the project.
         </p>
       </div>

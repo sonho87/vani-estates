@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { interiorServices, INTERIORS_UPDATED } from "@/lib/interiors";
+import { interiorServices, interiorGallery, INTERIORS_UPDATED } from "@/lib/interiors";
 import InteriorsForm from "./InteriorsForm";
 
 const serif = { fontFamily: "var(--serif)" };
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Interior Designers in Bangalore | Vani Estates",
     description: "New flats, old flat renovation, villas and offices. Free design consult and an honest cost guide.",
+    images: [{ url: "/interiors/living-room-carved-feature-wall-green-sofas.webp" }],
   },
 };
 
@@ -37,7 +38,7 @@ const faqs = [
   { q: "Do you do interiors for old flats and resale homes?", a: "Yes. Renovation of older flats and houses is a large part of our work in South Bangalore, including rewiring, bathrooms, kitchens, flooring and storage." },
   { q: "Which areas do you cover?", a: "All of Bangalore. We are based in Jayanagar and work across South Bangalore, Sarjapur Road, Whitefield, Hebbal, North Bangalore and nearby areas." },
   { q: "Do I need to buy my home through Vani Estates?", a: "No. Anyone can book a free consult. If you did buy through us, we can plan the interiors alongside the purchase and home loan." },
-  { q: "Who designs and builds the interiors?", a: "Design and execution are delivered by our interiors partner, Bonito Designs, with warranties on their terms. Vani Estates arranges the consult, stays your point of contact and passes on partner offers." },
+  { q: "Who designs and builds the interiors?", a: "Design and execution are delivered by our interiors partner, an established home-interiors brand, with warranties on their terms. Vani Estates arranges the consult, stays your point of contact and passes on partner offers." },
   { q: "How long do home interiors take?", a: "Usually 45 to 75 days from design sign-off, depending on the size of the home and the scope of work." },
 ];
 
@@ -80,6 +81,23 @@ export default function InteriorsPage() {
                 <p className="text-[13px] mb-3" style={{ ...sans, color: "#7A6F60", lineHeight: 1.7 }}>{s.costRows[0][1]} onwards</p>
                 <span className="text-[12px]" style={{ ...sans, color: "#C9A055", fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase" }}>See costs →</span>
               </Link>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="text-center mb-10">
+            <div className="eyebrow mb-3">Recent work</div>
+            <h2 className="text-4xl md:text-5xl mb-4" style={{ ...serif, color: "#1A1410", fontWeight: 400 }}>Homes our design partner has finished</h2>
+            <p className="max-w-2xl mx-auto text-[15px]" style={{ ...sans, color: "#7A6F60", lineHeight: 1.8 }}>
+              Real completed homes, including homes for well-known names in film and fashion. Every design is made for its owner, so yours will be too.
+            </p>
+          </div>
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [&>figure]:mb-4">
+            {interiorGallery.map(([fn, alt]) => (
+              <figure key={fn} className="break-inside-avoid">
+                <img src={`/interiors/${fn}.webp`} alt={alt} loading="lazy" className="w-full border border-[#DDD8CE]" />
+              </figure>
             ))}
           </div>
         </section>
@@ -186,7 +204,7 @@ export default function InteriorsPage() {
         </section>
 
         <p className="text-center text-[11px]" style={{ ...sans, color: "#7A6F60" }}>
-          Interior design and execution are delivered by our partner Bonito Designs. Designs, final pricing and warranties are as per their terms.
+          Interior design and execution are delivered by our interiors partner. Designs, final pricing and warranties are as per their terms.
         </p>
       </div>
 
