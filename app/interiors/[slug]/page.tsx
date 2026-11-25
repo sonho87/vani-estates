@@ -77,7 +77,7 @@ export default async function InteriorServicePage({ params }: any) {
             ))}
           </div>
           <p className="mt-3 text-[12px]" style={{ ...sans, color: "#7A6F60" }}>
-            Indicative Bangalore ranges as of {INTERIORS_UPDATED}. Your quote depends on size, materials and finish,
+            <strong>Projects start at ₹7 lakh.</strong> Indicative Bangalore ranges as of {INTERIORS_UPDATED}. Your quote depends on size, materials and finish,
             and is confirmed after a free site measurement.
           </p>
         </section>

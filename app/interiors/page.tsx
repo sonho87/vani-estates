@@ -20,10 +20,11 @@ export const metadata: Metadata = {
 };
 
 const costSummary = [
-  ["1 BHK", "₹2.5 to 4 lakh", "₹4 to 7 lakh"],
-  ["2 BHK", "₹3.5 to 6 lakh", "₹6 to 10 lakh"],
-  ["3 BHK", "₹5 to 8 lakh", "₹9 to 15 lakh"],
-  ["Villa (3 to 4 BHK)", "₹12 to 20 lakh", "₹20 to 40 lakh"],
+  ["2 BHK", "₹7 to 10 lakh", "₹10 to 16 lakh+"],
+  ["3 BHK", "₹9 to 15 lakh", "₹15 to 25 lakh+"],
+  ["4 BHK", "₹12 to 20 lakh", "₹20 to 35 lakh+"],
+  ["Villa / independent house", "₹20 to 40 lakh", "₹40 lakh+"],
+  ["Old flat full renovation (2 BHK)", "₹12 to 25 lakh", "₹25 lakh+"],
 ];
 
 const steps = [
@@ -34,7 +35,8 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "How much does interior design cost in Bangalore?", a: "In 2026 most homes cost about ₹3.5 to 6 lakh for a 2 BHK with kitchen, wardrobes and TV unit, ₹6 to 10 lakh for a full 2 BHK, and ₹9 to 15 lakh for a full 3 BHK. Premium finishes cost more. The quote is confirmed after a free site measurement." },
+  { q: "How much does interior design cost in Bangalore?", a: "In 2026 a full 2 BHK usually costs ₹7 to 10 lakh and a full 3 BHK ₹9 to 15 lakh. Villas start around ₹20 lakh. Premium finishes cost more. Our partner takes on projects from ₹7 lakh. The quote is confirmed after a free site measurement." },
+  { q: "Is there a minimum budget?", a: "Yes. Our interiors partner takes on projects from ₹7 lakh. That usually means a full 2 BHK, a 3 BHK or larger, a villa, an office, or a major renovation." },
   { q: "Do you do interiors for old flats and resale homes?", a: "Yes. Renovation of older flats and houses is a large part of our work in South Bangalore, including rewiring, bathrooms, kitchens, flooring and storage." },
   { q: "Which areas do you cover?", a: "All of Bangalore. We are based in Jayanagar and work across South Bangalore, Sarjapur Road, Whitefield, Hebbal, North Bangalore and nearby areas." },
   { q: "Do I need to buy my home through Vani Estates?", a: "No. Anyone can book a free consult. If you did buy through us, we can plan the interiors alongside the purchase and home loan." },
@@ -78,7 +80,7 @@ export default function InteriorsPage() {
             {interiorServices.map((s: any) => (
               <Link key={s.slug} href={`/interiors/${s.slug}/`} className="bg-white border border-[#DDD8CE] p-6 hover:border-[#C9A055] transition block">
                 <h3 className="text-xl mb-2" style={{ ...serif, color: "#1A1410", fontWeight: 600 }}>{s.short}</h3>
-                <p className="text-[13px] mb-3" style={{ ...sans, color: "#7A6F60", lineHeight: 1.7 }}>{s.costRows[0][1]} onwards</p>
+                <p className="text-[13px] mb-3" style={{ ...sans, color: "#7A6F60", lineHeight: 1.7 }}>Projects from ₹7 lakh</p>
                 <span className="text-[12px]" style={{ ...sans, color: "#C9A055", fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase" }}>See costs →</span>
               </Link>
             ))}
@@ -112,8 +114,8 @@ export default function InteriorsPage() {
               <thead>
                 <tr className="border-b border-[#DDD8CE]" style={{ color: "#7A6F60", fontSize: 12, letterSpacing: 1.5, textTransform: "uppercase" }}>
                   <th className="px-5 py-4">Home</th>
-                  <th className="px-5 py-4">Essentials (kitchen, wardrobes, TV unit)</th>
                   <th className="px-5 py-4">Full home</th>
+                  <th className="px-5 py-4">Premium</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#DDD8CE]" style={{ color: "#1A1410", fontSize: 15 }}>
@@ -128,7 +130,7 @@ export default function InteriorsPage() {
             </table>
           </div>
           <p className="mt-3 text-[12px]" style={{ ...sans, color: "#7A6F60" }}>
-            Indicative ranges as of {INTERIORS_UPDATED}. Premium finishes cost more. Read the full{" "}
+            Projects start at ₹7 lakh. Indicative ranges as of {INTERIORS_UPDATED}. Read the full{" "}
             <Link href="/blog/interior-design-cost-in-bangalore-2026-1-bhk-2-bhk-3-bhk-price-guide/" className="text-[#C9A055] hover:underline">interior design cost guide</Link>.
           </p>
         </section>
