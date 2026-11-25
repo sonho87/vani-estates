@@ -110,7 +110,8 @@ function Footer() {
               <Link href="/sell-your-property/" className="hover:text-[#C9A055] transition">Sell or Manage Your Property</Link>
               <Link href="/rent-out-your-property/" className="hover:text-[#C9A055] transition">Rent Out Your Property</Link>
               <Link href="/home-loans/" className="hover:text-[#C9A055] transition">Home Loans</Link>
-              <Link href="/interiors/" className="hover:text-[#C9A055] transition">Interiors</Link>
+              <Link href="/interiors/" className="hover:text-[#C9A055] transition">Interior Design</Link>
+              <Link href="/interiors/old-flat-renovation-bangalore/" className="hover:text-[#C9A055] transition">Old Flat Renovation</Link>
               <Link href="/guides/" className="hover:text-[#C9A055] transition">Guides &amp; Resources</Link>
               <Link href="/stamp-duty-calculator/" className="hover:text-[#C9A055] transition">Stamp Duty Calculator</Link>
               <Link href="/blog/" className="hover:text-[#C9A055] transition">Blog</Link>

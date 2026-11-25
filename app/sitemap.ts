@@ -2,6 +2,7 @@ import { properties, blogs } from "@/lib/data";
 import { publishedProjects, builders } from "@/lib/projects";
 import { nriCountries } from "@/lib/nri-countries";
 import { localities } from "@/lib/localities";
+import { interiorServices } from "@/lib/interiors";
 import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base + "/sell-your-property/", lastModified: "2026-11-13", changeFrequency: "monthly" as const, priority: 0.9 },
     { url: base + "/rent-out-your-property/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: base + "/home-loans/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.85 },
-    { url: base + "/interiors/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: base + "/interiors/", lastModified: "2026-11-25", changeFrequency: "monthly" as const, priority: 0.9 },
     { url: base + "/commercial/pride-hulkul-lalbagh-road/", lastModified: "2026-09-23", changeFrequency: "weekly" as const, priority: 0.85 },
     { url: base + "/about/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: base + "/contact/", lastModified: LAST_MODIFIED, changeFrequency: "monthly" as const, priority: 0.7 },
@@ -44,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages = blogs.map((b: any) => ({
     url: `${base}/blog/${b.slug}/`,
-    lastModified: LAST_MODIFIED,
+    lastModified: b.id >= 58 ? "2026-11-25" : LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: 0.75,
   }));
@@ -79,8 +80,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  const interiorPages = interiorServices.map((s: any) => ({
+    url: `${base}/interiors/${s.slug}/`,
+    lastModified: "2026-11-25",
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   return [
     ...staticPages,
+    ...interiorPages,
     ...propertyPages,
     ...projectPages,
     ...builderPages,

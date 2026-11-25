@@ -65,6 +65,11 @@ const groups: { title: string; blurb: string; categories: string[] }[] = [
     blurb: "Honest reviews of branded new projects we represent.",
     categories: ["Project Spotlight", "Luxury Real Estate"],
   },
+  {
+    title: "Interiors & Renovation",
+    blurb: "Interior costs, renovation checklists and handover tips.",
+    categories: ["Interiors"],
+  },
 ];
 
 export default function GuidesPage() {
